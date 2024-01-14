@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Post
 
 
 # Create your views here.
-def my_website(request):
-    return HttpResponse("Hello, Writers!")
+class HomePage(generic.ListView):
+    queryset = Post.objects.all()
+    template_name = "blog/index.html"

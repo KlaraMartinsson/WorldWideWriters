@@ -5,6 +5,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 CONTINENT = (
     (0, "None"), (1, "North America"), (2, "South America"), (3, "Africa"), (4, "Europe"), (5, "Asia"), (6, "Oceania"), (7, "Antarctica"))
 
+
 # Create your models here.
 class Post(models.Model):
     """
@@ -32,7 +33,7 @@ class Post(models.Model):
 
     def __str__(self):
         """
-        Returns a string with the title of the post and 
+        Returns a string with the title of the post and
         name of author
         """
         return f"{self.title} | Written by {self.author}"
