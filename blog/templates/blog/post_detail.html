@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- post_detail.html content starts here -->
+
+<!-- Displaying full post -->
+<div class="container-lg card content-background">
+    <div class="row justify-content-md-center">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p>{{ post.content | safe }}</p>
+        <p>{{ post.author }} | {{ post.created_on }}</p>
+    </div>
+</div>
+{% endblock content %}
