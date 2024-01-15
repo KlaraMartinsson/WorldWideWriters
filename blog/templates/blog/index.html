@@ -4,16 +4,14 @@
 
 <!-- index.html content starts here -->
 
-<div class="container card content-background">
+<div class="container card mt-5">
     <div class="row justify-content-md-center">
         {% for post in object_list %}
-        <div class="col-md-4 p-4">
-                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                        <h2>{{post.title}}</h2>
-                    </a>
-                    <p>{{post.excerpt}}</p>
-                </div>
-            </div>
+        <div class="col-md-4 p-3">
+            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                <h2>{{post.title}}</h2>
+            </a>
+            <p>{{post.excerpt}}</p>
         </div>
         {% endfor %}
     </div>

@@ -6,3 +6,11 @@
 .navbar-light .navbar-nav .show>.nav-link {
     color: #0093cd;
 }
+
+a {
+    text-decoration: none;
+}
+
+h2{
+    color:black;
+}
