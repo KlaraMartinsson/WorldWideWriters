@@ -66,12 +66,17 @@
                     {% endif %}
                 </ul>
             </div>
+            {% if user.is_authenticated %}
+            <p class="text-end m-3">Logged in as {{ user }}</p>
+            {% else %}
+            <p class="text-end m-3">You are not logged in</p>
+            {% endif %}
         </div>
     </nav>
     
 
         <main class="flex-shrink-0">
-        
+
             {% block content %}
             <!-- Content Goes here -->
             {% endblock content %}
