@@ -7,7 +7,15 @@
     color: #0093cd;
 }
 
-/*#hero-image {
-    width: 80%;
-    height: 500px;
-}/*
+a {
+    text-decoration: none;
+}
+
+h2{
+    color:black;
+}
+
+#hero-image {
+    width: 100%;
+    height: auto;
+}

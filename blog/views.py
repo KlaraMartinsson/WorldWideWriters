@@ -23,16 +23,15 @@ def post_detail(request, slug):
 
 
 def user_post(request):
+    post_form = PostForm()
     if request.method == "POST":
-        post_form = PostForm(data=request.POST)
+        post_form = PostForm(request.POST, request.FILES)
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)
-            post.save()
-            
-    post_form = PostForm()
-            
+            post.save()        
+      
     return render(
         request,
         "blog/user_post.html",
