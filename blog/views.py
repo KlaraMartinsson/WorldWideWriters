@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from django.utils.text import slugify
 from .models import Post
 from .forms import PostForm
@@ -30,7 +31,11 @@ def user_post(request):
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)
-            post.save()        
+            post.save()  
+            messages.add_message(
+                request, messages.SUCCESS,
+        'Post submitted and awaiting approval'
+    )      
       
     return render(
         request,
