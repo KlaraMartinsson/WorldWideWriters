@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
 from django.utils.text import slugify
@@ -8,12 +8,18 @@ from .forms import PostForm
 
 # Create your views here.
 class HomePage(generic.ListView):
-    queryset = Post.objects.all()
+    """
+    View to display posts
+    """
+    queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
 
 
 def post_detail(request, slug):
-    queryset = Post.objects.all()
+    """
+    Request the data for a single blog post
+    """
+    queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
 
     return render(
@@ -24,6 +30,9 @@ def post_detail(request, slug):
 
 
 def user_post(request):
+    """
+    View to add form where user can post
+    """
     post_form = PostForm()
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
@@ -44,3 +53,24 @@ def user_post(request):
             "post_form": post_form,
         },
     )
+
+def post_edit(request, id):
+    if request.method == "GET":
+        post = Post.objects.get(pk=id)
+        return render(request, "blog/post_edit.html", {"post": post})
+    elif request.method == "POST":
+        post = Post.objects.update_or_create(
+            pk=id,
+            defaults={
+                "title": request.POST["title"],
+                "content": request.POST["content"],
+                "excerpt": request.POST["excerpt"],
+                "post_image": request.FILES["post_image"],
+            },
+        )
+        return redirect("home")
+
+def post_delete(request, id):
+    post = Post.objects.get(pk=id)
+    post.delete()
+    return redirect("home")

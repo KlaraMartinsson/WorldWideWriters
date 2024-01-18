@@ -5,8 +5,8 @@
 <!-- post_detail.html content starts here -->
 
 <!-- Displaying full post -->
-<div class="container-lg card mt-5">
-    <div class="row justify-content-md-center p-4">¨
+<div class="container-lg card mt-5 mb-5">
+    <div class="row justify-content-md-center p-4">
         {% if "placeholder" in post.post_image.url %}
         <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
         {% else %}
@@ -15,6 +15,9 @@
         <h1 class="post-title">{{ post.title }}</h1>
         <p>{{ post.content | safe }}</p>
         <p>{{ post.author }} | {{ post.created_on }}</p>
+        {% if user.is_authenticated and post.author == request.user%}
+        <a href="{% url 'post_edit' post.pk %}"class="btn btn-sm btn-primary">Edit</a>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}
