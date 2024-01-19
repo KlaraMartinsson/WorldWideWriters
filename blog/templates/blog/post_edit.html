@@ -6,21 +6,21 @@
         <h2 class="m-4 text-center">Edit post</h2>
         <form action="{% url 'post_edit' post.pk %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="image">Image:</label>
+            <label for="image">Image*</label>
             <br>
-            <input type="file" id="post_image" name="post_image" class="form-control" value="{{ post.post_image }}">
+            <input type="file" id="post_image" name="post_image" class="form-control" value="{{ post.post_image }}" required>
             <br>
-            <label for="title">Title:</label>
+            <label for="title">Title*</label>
             <br>
-            <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}">
-            <br>
-            <br>
-            <label for="content">Content:</label><br>
-            <textarea type="text" id="content" name="content" rows="20" cols="100" class="form-control">{{ post.content | safe }}</textarea>
+            <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}" required>
             <br>
             <br>
-            <label for="excerpt">Excerpt:</label><br>
-            <textarea type="text" id="excerpt" name="excerpt" rows="5" cols="50" class="form-control">{{ post.excerpt }}</textarea>
+            <label for="content">Content*</label><br>
+            <textarea type="text" id="content" name="content" rows="20" cols="100" class="form-control" required>{{ post.content | safe }}</textarea>
+            <br>
+            <br>
+            <label for="excerpt">Excerpt*</label><br>
+            <textarea type="text" id="excerpt" name="excerpt" rows="5" cols="50" class="form-control" required>{{ post.excerpt }}</textarea>
             <br>
             <br>
             <div class="mb-4">
