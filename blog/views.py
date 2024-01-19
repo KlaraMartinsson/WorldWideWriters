@@ -71,11 +71,19 @@ def post_edit(request, id):
                 "post_image": request.FILES["post_image"],
             },
         )
+        messages.add_message(
+                request, messages.SUCCESS,
+        'Post edited!'
+    )
         return redirect("home")
 
 def post_delete(request, id):
     post = Post.objects.get(pk=id)
     post.delete()
+    messages.add_message(
+                request, messages.SUCCESS,
+        'Post deleted!'
+    )
     return redirect("home")
 
 
@@ -86,3 +94,4 @@ def user_profile(request):
     'mymembers': mydata,
   }
   return HttpResponse(template.render(context, request))
+
