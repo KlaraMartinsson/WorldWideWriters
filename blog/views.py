@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
 from django.utils.text import slugify
+from django.http import HttpResponse
+from django.template import loader
 from .models import Post
 from .forms import PostForm
 
@@ -54,6 +56,7 @@ def user_post(request):
         },
     )
 
+
 def post_edit(request, id):
     if request.method == "GET":
         post = Post.objects.get(pk=id)
@@ -74,3 +77,12 @@ def post_delete(request, id):
     post = Post.objects.get(pk=id)
     post.delete()
     return redirect("home")
+
+
+def user_profile(request):
+  mydata = Post.objects.all()
+  template = loader.get_template('blog/user_profile.html')
+  context = {
+    'mymembers': mydata,
+  }
+  return HttpResponse(template.render(context, request))
