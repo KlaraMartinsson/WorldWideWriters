@@ -29,21 +29,8 @@ h2{
 background-color: #fbfadf;
 }
 
-
-    /* animates zoom effect on loading page 
-    animation-name: hero-zoom;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+.btn-saved {
+    border: none;
+    background: transparent;
+    
 }
-
-/* creates the level of zoom for hero image 
-@keyframes hero-zoom {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.1);
-    }
-}
-*/

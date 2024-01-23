@@ -1,12 +1,16 @@
 .navbar-light .navbar-nav .nav-link {
-    color: #0093cd;
+    color: #0a58ca;
+    background-color: #faf7ea;
+    font-weight: 400;
 }
 
-.navbar-light .navbar-nav .nav-link.active,
-.navbar-light .navbar-nav .show>.nav-link {
-    color: #0093cd;
+.navbar-light .navbar-brand {
+    color: #084298;
 }
 
+body {
+    background-color: #faf7ea;
+}
 a {
     text-decoration: none;
 }
@@ -15,7 +19,31 @@ h2{
     color:black;
 }
 
+
 #hero-image {
-    width: 100%;
     height: auto;
+    width: 100%;
 }
+
+.card {
+background-color: #fbfadf;
+}
+
+
+    /* animates zoom effect on loading page 
+    animation-name: hero-zoom;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+/* creates the level of zoom for hero image 
+@keyframes hero-zoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+*/

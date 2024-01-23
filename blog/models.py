@@ -24,7 +24,8 @@ class Post(models.Model):
     post_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    approved = models.BooleanField(default=False)
+    saved_post = models.ManyToManyField(
+        User, related_name='post_saved', blank=True)
 
     class Meta:
         """
@@ -38,3 +39,4 @@ class Post(models.Model):
         name of author
         """
         return f"{self.title} | Written by {self.author}"
+

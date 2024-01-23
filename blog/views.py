@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views import generic
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.views import generic, View
 from django.contrib import messages
 from django.utils.text import slugify
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Post
 from .forms import PostForm
@@ -13,22 +13,29 @@ class HomePage(generic.ListView):
     """
     View to display posts
     """
+    model = Post
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
 
 
-def post_detail(request, slug):
+class PostDetail(View):
     """
     Request the data for a single blog post
     """
-    queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        saved= False
+        if post.saved_post.filter(id=self.request.user.id).exists():
+            saved = True
 
-    return render(
-        request,
-        "blog/post_detail.html",
-        {"post": post},
-    )
+        return render(
+            request,
+            "blog/post_detail.html",
+            {"post": post,
+            "saved": saved,
+            },
+        )
 
 
 def user_post(request):
@@ -95,3 +102,15 @@ def user_profile(request):
   }
   return HttpResponse(template.render(context, request))
 
+
+class PostSaved(View):  
+
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+
+        if post.saved_post.filter(id=request.user.id).exists():
+            post.saved_post.remove(request.user)
+        else:
+            post.saved_post.add(request.user)
+
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))

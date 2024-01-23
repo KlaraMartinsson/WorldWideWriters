@@ -15,9 +15,24 @@
         <h1 class="post-title">{{ post.title }}</h1>
         <p>{{ post.content | safe }}</p>
         <p>{{ post.author }} | {{ post.created_on }}</p>
+        <div class="col-1">
+            <strong>
+                {% if user.is_authenticated %}
+                <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% if not saved %}
+                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-regular fa-bookmark fa-2xl"></i></button>
+                    {% else %}
+                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-solid fa-bookmark fa-2xl"></i></button>
+                    {% endif %}
+                {% endif %}
+                </form>
+            </strong>
+        </div>
         {% if user.is_authenticated and post.author == request.user%}
         <a href="{% url 'post_edit' post.pk %}"class="btn btn-sm btn-primary">Edit</a>
         {% endif %}
     </div>
 </div>
+<script src="https://kit.fontawesome.com/2da612ed01.js" crossorigin="anonymous"></script>
 {% endblock content %}
