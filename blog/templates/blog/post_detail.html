@@ -5,8 +5,8 @@
 <!-- post_detail.html content starts here -->
 
 <!-- Displaying full post -->
-<div class="container-lg card mt-5 mb-5">
-    <div class="row justify-content-md-center p-4">
+<div class="container-lg mt-5 mb-5">
+    <div class="row card p-4">
         {% if "placeholder" in post.post_image.url %}
         <img  src="{% static 'images/default.jpg' %}" alt="placeholder image">
         {% else %}
@@ -15,23 +15,23 @@
         <h1 class="mt-4">{{ post.title }}</h1>
         <p>{{ post.content | safe }}</p>
         <p>{{ post.author }} | {{ post.created_on }}</p>
-        <div class="col-1 mb-4">
-            <strong>
-                {% if user.is_authenticated %}
-                <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">
-                    {% csrf_token %}
-                    {% if not saved %}
-                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-regular fa-bookmark fa-2xl"></i></button>
-                    {% else %}
-                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-solid fa-bookmark fa-2xl"></i></button>
-                    {% endif %}
+        <div class="col-1 align-self-end">
+            {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">
+                {% csrf_token %}
+                {% if not saved %}
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-regular fa-bookmark fa-2xl"></i></button>
+                {% else %}
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-solid fa-bookmark fa-2xl"></i></button>
                 {% endif %}
-                </form>
-            </strong>
+            {% endif %}
+            </form>
         </div>
-        {% if user.is_authenticated and post.author == request.user%}
-        <a href="{% url 'post_edit' post.pk %}"class="btn btn-sm btn-primary">Edit</a>
-        {% endif %}
+        <div class="col-1">
+            {% if user.is_authenticated and post.author == request.user%}
+            <a href="{% url 'post_edit' post.pk %}"class="btn btn-primary">Edit</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 <script src="https://kit.fontawesome.com/2da612ed01.js" crossorigin="anonymous"></script>
