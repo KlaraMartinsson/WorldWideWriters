@@ -110,7 +110,14 @@ class PostSaved(View):
 
         if post.saved_post.filter(id=request.user.id).exists():
             post.saved_post.remove(request.user)
+            messages.add_message(
+                    request, messages.SUCCESS,
+            'Post unsaved!'
+        )
         else:
             post.saved_post.add(request.user)
-
+            messages.add_message(
+                    request, messages.SUCCESS,
+            'Post saved!'
+        )
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))

@@ -8,14 +8,14 @@
 <div class="container-lg card mt-5 mb-5">
     <div class="row justify-content-md-center p-4">
         {% if "placeholder" in post.post_image.url %}
-        <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+        <img  src="{% static 'images/default.jpg' %}" alt="placeholder image">
         {% else %}
-        <img class="card-img-top" src=" {{ post.post_image.url }}" alt="{{ post.title }}">
+        <img src=" {{ post.post_image.url }}" alt="{{ post.title }}">
         {% endif %}
-        <h1 class="post-title">{{ post.title }}</h1>
+        <h1 class="mt-4">{{ post.title }}</h1>
         <p>{{ post.content | safe }}</p>
         <p>{{ post.author }} | {{ post.created_on }}</p>
-        <div class="col-1">
+        <div class="col-1 mb-4">
             <strong>
                 {% if user.is_authenticated %}
                 <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">
