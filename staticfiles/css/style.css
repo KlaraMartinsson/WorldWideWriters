@@ -2,6 +2,7 @@
     color: #0a58ca;
     background-color: #faf7ea;
     font-weight: 400;
+    font-size: large;
 }
 
 .navbar-light .navbar-brand {
@@ -13,6 +14,14 @@ body {
 }
 a {
     text-decoration: none;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.text-small{
+    font-size: 1rem;
 }
 
 h2{
@@ -29,21 +38,7 @@ h2{
 background-color: #fbfadf;
 }
 
-
-    /* animates zoom effect on loading page 
-    animation-name: hero-zoom;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+.btn-saved {
+    border: none;
+    background: transparent;
 }
-
-/* creates the level of zoom for hero image 
-@keyframes hero-zoom {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.1);
-    }
-}
-*/
