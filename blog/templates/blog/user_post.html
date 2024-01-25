@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} 
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
 
 {%block content %}
 
@@ -15,7 +17,7 @@
       style="margin-top: 1.3em"
     >
       {{ post_form | crispy }} {% csrf_token %}
-      <button id="submitButton" type="submit" class="btn btn-info">
+      <button id="submitButton" type="submit" class="btn btn-primary">
         Submit
       </button>
     </form>
