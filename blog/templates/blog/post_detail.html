@@ -14,7 +14,7 @@
         {% endif %}
         <h1 class="mt-4">{{ post.title }}</h1>
         <p>{{ post.content | safe }}</p>
-        <p>{{ post.author }} | {{ post.created_on }}</p>
+        <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
         <div class="col-1 align-self-end">
             {% if user.is_authenticated %}
             <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">
