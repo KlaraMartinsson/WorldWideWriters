@@ -2,11 +2,6 @@
 {% load static %}
 {% block content %}
 
-<!-- index.html content starts here -->
-<div>
-    <img src="{% static 'images/hero-image.png' %}" id="hero-image">
-</div>
-
 <div class="container card mt-5">
     <div class="row justify-content-md-center">
         {% for post in object_list %}
@@ -24,7 +19,5 @@
         {% endfor %}
     </div>
 </div>
-
-<!-- index.html content ends here -->
 
 {% endblock %}

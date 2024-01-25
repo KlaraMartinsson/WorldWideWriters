@@ -53,7 +53,8 @@ def user_post(request):
             messages.add_message(
                 request, messages.SUCCESS,
         'Post submitted and awaiting approval'
-    )      
+    )   
+        return redirect("home")
       
     return render(
         request,
@@ -62,6 +63,7 @@ def user_post(request):
             "post_form": post_form,
         },
     )
+    
 
 
 def post_edit(request, id):
@@ -121,3 +123,12 @@ class PostSaved(View):
             'Post saved!'
         )
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class ContinentPosts(generic.ListView):
+    model = Post
+    template_name = 'blog/continent_posts.html'
+
+    def get_queryset(self):
+        continent = self.kwargs.get('continent', 0)  # Default to 'None' if not provided
+        return Post.objects.filter(continents=continent, status=1)

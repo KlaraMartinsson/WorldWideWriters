@@ -9,4 +9,5 @@ urlpatterns = [
     path('saved_post/<slug:slug>/', views.PostSaved.as_view(), name='post_saved'),
     path("post/edit/<int:id>", views.post_edit, name="post_edit"),
     path("post/delete/<int:id>", views.post_delete, name="post_delete"),
+    path('continent_posts/<int:continent>/', views.ContinentPosts.as_view(), name='continent_posts'),
 ]

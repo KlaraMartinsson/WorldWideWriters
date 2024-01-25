@@ -42,9 +42,13 @@
                                     Continents
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Asia</a></li>
-                                    <li><a class="dropdown-item" href="#">Europe</a></li>
-                                    <li><a class="dropdown-item" href="#">Africa</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=1 %}">North America</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=2 %}">South America</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=3 %}">Africa</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=4 %}">Europe</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=5 %}">Asia</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=6 %}">Oceania</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'continent_posts' continent=7 %}">Antarctica</a></li>
                                 </ul>
                             </li>
                             {% if user.is_authenticated %}
@@ -93,10 +97,6 @@
                 </div>
             </div>
         </header>
-
-        <div>
-            <img src="{% static 'images/hero-image.png' %}" id="hero-image">
-        </div>
 
         <main class="flex-shrink-0">
             {% block content %}
