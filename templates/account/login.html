@@ -7,9 +7,9 @@
 
 {% block content %}
 
-<div class="container mt-5 mb-5 card">
+<div class="container-sm mt-5 mb-5 card">
     <div class="row">
-        <div class="col-md offset-md-2 pt-3">
+        <div class="col offset-md-2 pt-3">
             <h1>{% trans "Sign In" %}</h1>
 
             <p>{% blocktrans %} Welcome back to WorldWideWriters. Ready to share some knowledge about travels? Sign in!</p>
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md offset-md-2 p-3">
+        <div class="col offset-md-2 p-3">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
