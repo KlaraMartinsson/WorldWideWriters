@@ -11,11 +11,19 @@ from .forms import PostForm
 # Create your views here.
 class HomePage(generic.ListView):
     """
+    View to display homepage
+    """
+    model = Post
+    template_name = "blog/index.html"
+
+
+class PostList(generic.ListView):
+    """
     View to display posts
     """
     model = Post
     queryset = Post.objects.filter(status=1)
-    template_name = "blog/index.html"
+    template_name = "blog/post_list.html"
 
 
 class PostDetail(View):
