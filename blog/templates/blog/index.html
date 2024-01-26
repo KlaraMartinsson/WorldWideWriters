@@ -4,12 +4,27 @@
 
 <!-- index.html content starts here -->
 <div>
-    <img src="{% static 'images/hero-image.png' %}" id="hero-image">
+    <img src="{% static 'images/hero-image.png' %}" class="img-fluid" id="hero-image">
 </div>
 
-<div class="container card mt-5">
-    <div class="row justify-content-md-center">
-        <p>about</p>
+<div class="container card mt-5 mb-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center mt-5 mb-4">Welcome to WorldWideWriters!</h1>
+        <p class="text-center">Embrace your wanderlust and join World Wide Writers, a website where travel enthusiasts share their adventures and
+        inspire others to explore the world. Here, you can create posts and save your favorite travel posts from fellow
+        adventurers. Share travel itineraries, exchange recommendations, and start planning your next adventure!</p>
+        <div class="col-3 mb-4">
+            <a class="btn btn-lg btn-primary {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_signup' %}">Sign Up!</a>
+        </div>
+    </div>
+        <br>
+    <div class="row justify-content-start">
+        <p class="text-small">Already have an account?</p>
+            <div class="col-3 mb-4 justify-content-start">
+                <a class="btn btn-sm btn-primary {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_login' %}">Sign In Here!</a>
+            </div>
     </div>
 </div>
 
