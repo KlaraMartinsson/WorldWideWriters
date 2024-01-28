@@ -15,10 +15,10 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
         )
-    title = models.CharField(max_length=30, unique=True)
+    title = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     continents = models.IntegerField(choices=CONTINENT, default=0)
-    content = models.TextField(max_length=2000, blank=True)
+    content = models.TextField(max_length=4000, blank=True)
     excerpt = models.TextField(max_length=200, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     post_image = CloudinaryField('image', default='placeholder')
