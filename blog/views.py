@@ -8,7 +8,6 @@ from .models import Post
 from .forms import PostForm
 
 
-# Create your views here.
 class HomePage(generic.ListView):
     """
     View to display homepage
@@ -75,6 +74,9 @@ def user_post(request):
 
 
 def post_edit(request, id):
+    """
+    View for users to edit their posts
+    """
     if request.method == "GET":
         post = Post.objects.get(pk=id)
         return render(request, "blog/post_edit.html", {"post": post})
@@ -95,6 +97,9 @@ def post_edit(request, id):
         return redirect("home")
 
 def post_delete(request, id):
+    """
+    View for users to delete their posts
+    """
     post = Post.objects.get(pk=id)
     post.delete()
     messages.add_message(
@@ -105,16 +110,21 @@ def post_delete(request, id):
 
 
 def user_profile(request):
-  mydata = Post.objects.all()
-  template = loader.get_template('blog/user_profile.html')
-  context = {
-    'mymembers': mydata,
-  }
-  return HttpResponse(template.render(context, request))
+    """
+    View to display posts in user profile
+    """
+    mydata = Post.objects.all()
+    template = loader.get_template('blog/user_profile.html')
+    context = {
+        'mymembers': mydata,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 class PostSaved(View):  
-
+    """
+    View for users to save posts in their profile
+    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
 
@@ -134,6 +144,9 @@ class PostSaved(View):
 
 
 class ContinentPosts(generic.ListView):
+    """
+    View to filter posts by continent
+    """
     model = Post
     template_name = 'blog/continent_posts.html'
 
@@ -141,5 +154,9 @@ class ContinentPosts(generic.ListView):
         continent = self.kwargs.get('continent', 0)  # Default to 'None' if not provided
         return Post.objects.filter(continents=continent, status=1)
 
+
 def custom_404(request, exception):
+    """
+    View to load 404 page
+    """
     return render(request, '404.html', status=404)

@@ -1,20 +1,37 @@
+/* Body */
+body {
+    background-color: #faf7ea;
+}
+
+/* Hero page for the homepage */ 
+#hero-image {
+    height: auto;
+    width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: #0a58ca;
-    background-color: #faf7ea;
     font-weight: 400;
     font-size: large;
+}
+
+.navbar .container-fluid {
+    border: 1px;
+    height: 60px;
 }
 
 .navbar-light .navbar-brand {
     color: #084298;
 }
 
-body {
-    background-color: #faf7ea;
-}
-a {
-    text-decoration: none;
-}
+/* Font Sizes */
 
 p {
     font-size: 1.2rem;
@@ -28,16 +45,12 @@ h2{
     color:black;
 }
 
-
-#hero-image {
-    height: auto;
-    width: 100%;
-}
-
+/* Background color for the card container of all my elements */
 .card {
 background-color: #fbfadf;
 }
 
+/* Button for saving posts */ 
 .btn-saved {
     border: none;
     background: transparent;
