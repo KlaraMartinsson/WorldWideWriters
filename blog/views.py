@@ -140,3 +140,6 @@ class ContinentPosts(generic.ListView):
     def get_queryset(self):
         continent = self.kwargs.get('continent', 0)  # Default to 'None' if not provided
         return Post.objects.filter(continents=continent, status=1)
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Error handler 404 page -->
+<section>
+    <div class="container card mt-5 mb-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col mt-4 mb-4 text-center">
+                <h1>Error 404: Not Found</h1>
+                <a class="btn btn-primary mt-4" href="{% url 'home' %}">Go home</a>
+            </div>
+        </div>
+    </div>
+</section>
+                
+{% endblock %}
