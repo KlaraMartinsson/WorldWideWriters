@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-<div class="container card mt-5">
-    <div class="row justify-content-md-center">
-        {% for post in object_list %}
-        <div class="col-md-4 p-3">
-            {% if "placeholder" in post.post_image.url %}
-            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
-            {% else %}
-            <img class="card-img-top" src=" {{ post.post_image.url }}" alt="{{ post.title }}">
-            {% endif %}
-            <h1>{{post.title}}</h1>
-            <p>{{post.excerpt}}</p>
-            <p class="text-small">Author | {{post.author}}</p>
-            <a href="{% url 'post_detail' post.slug %}" class="btn btn-sm btn-primary">Read more</a>
+<section>
+    <div class="container card mt-5">
+        <div class="row justify-content-md-center">
+            {% for post in object_list %}
+            <div class="col-md-4 p-3">
+                {% if "placeholder" in post.post_image.url %}
+                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                {% else %}
+                <img class="card-img-top" src=" {{ post.post_image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <h1>{{post.title}}</h1>
+                <p>{{post.excerpt}}</p>
+                <p class="text-small">Author | {{post.author}}</p>
+                <a href="{% url 'post_detail' post.slug %}" class="btn btn-sm btn-primary">Read more</a>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-
+</section>
 {% endblock %}

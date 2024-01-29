@@ -1,54 +1,54 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<h1 class="text-center mt-5">My Posts</h1>
-<div class="container card mt-5">
-    <div class="row">
-        {% for mydata in mymembers %}
-            {% if user == mydata.author %}
-                <div class="col-md-4 p-3">
-                    {% if "placeholder" in mydata.post_image.url %}
+<section>
+    <h1 class="text-center mt-5">My Posts</h1>
+    <div class="container card mt-5">
+        <div class="row">
+            {% for mydata in mymembers %}
+                {% if user == mydata.author %}
+                    <div class="col-md-4 p-3">
+                        {% if "placeholder" in mydata.post_image.url %}
+                            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                            {% else %}
+                            <img class="card-img-top" src="{{ mydata.post_image.url }}" alt="{{ mydata.title }}">
+                        {% endif %}
+                        <h2>{{mydata.title}}</h2>
+                        <p>{{mydata.excerpt}}</p>
+                        <p>Author | {{mydata.author}}</p>
+                        <a href="{% url 'post_detail' mydata.slug %}" class="btn btn-sm btn-outline-primary">Read More</a>
+                        <a href="{% url 'post_edit' mydata.pk %}"class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'post_delete' mydata.pk %}" class="btn btn-sm btn-secondary">Delete Post</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section>
+    <h1 class="text-center mt-5">My Saved Posts</h1>
+    <div class="container card mt-5 mb-5">
+        <div class="row">
+            {% for mydata in mymembers %}
+                {% if request.user in mydata.saved_post.all %}
+                    <div class="col-md-4 p-3">
+                        {% if "placeholder" in mydata.post_image.url %}
                         <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                         {% else %}
                         <img class="card-img-top" src="{{ mydata.post_image.url }}" alt="{{ mydata.title }}">
-                    {% endif %}
-                    <h2>{{mydata.title}}</h2>
-                    <p>{{mydata.excerpt}}</p>
-                    <p>Author | {{mydata.author}}</p>
-                    <a href="{% url 'post_detail' mydata.slug %}" class="btn btn-sm btn-outline-primary">Read More</a>
-                    <a href="{% url 'post_edit' mydata.pk %}"class="btn btn-sm btn-primary">Edit</a>
-                    <a href="{% url 'post_delete' mydata.pk %}" class="btn btn-sm btn-secondary">Delete Post</a>
-                </div>
-            {% endif %}
-        {% endfor %}
-   </div>
-</div>
-
-<h1 class="text-center mt-5">My Saved Posts</h1>
-<div class="container card mt-5 mb-5">
-    <div class="row">
-        {% for mydata in mymembers %}
-            {% if request.user in mydata.saved_post.all %}
-                <div class="col-md-4 p-3">
-                    {% if "placeholder" in mydata.post_image.url %}
-                    <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
-                    {% else %}
-                    <img class="card-img-top" src="{{ mydata.post_image.url }}" alt="{{ mydata.title }}">
-                    {% endif %}
-                    <h2>{{mydata.title}}</h2>
-                    <p>{{mydata.excerpt}}</p>
-                    <p>Author | {{mydata.author}}</p>
-                    <a href="{% url 'post_detail' mydata.slug %}" class="btn btn-sm btn-outline-primary">Read More</a>
-                    {% if user == mydata.author %}
-                    <a href="{% url 'post_edit' mydata.pk %}" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="{% url 'post_delete' mydata.pk %}" class="btn btn-sm btn-secondary">Delete Post</a>
-                    {% endif %}
-                </div>
-            {% endif %}
-        {% endfor %}
+                        {% endif %}
+                        <h2>{{mydata.title}}</h2>
+                        <p>{{mydata.excerpt}}</p>
+                        <p>Author | {{mydata.author}}</p>
+                        <a href="{% url 'post_detail' mydata.slug %}" class="btn btn-sm btn-outline-primary">Read More</a>
+                        {% if user == mydata.author %}
+                        <a href="{% url 'post_edit' mydata.pk %}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'post_delete' mydata.pk %}" class="btn btn-sm btn-secondary">Delete Post</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
-</div>
-
-
+</section>
 {% endblock %}
