@@ -2,19 +2,21 @@
 {% load static %}
 
 {% block content %}
-<!-- post_detail.html content starts here -->
-
 <!-- Displaying full post -->
 <div class="container-lg mt-5 mb-5">
     <div class="row card p-4">
+        <!-- Article Section -->
+    <article>
         {% if "placeholder" in post.post_image.url %}
         <img  src="{% static 'images/default.jpg' %}" alt="placeholder image">
         {% else %}
         <img src=" {{ post.post_image.url }}" alt="{{ post.title }}">
         {% endif %}
         <h1 class="mt-4">{{ post.title }}</h1>
-        <p>{{ post.content | safe }}</p>
+        <div>{{ post.content | safe }}
         <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
+        </div>
+    </article>
         <div class="col-1 align-self-end">
             {% if user.is_authenticated %}
             <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">

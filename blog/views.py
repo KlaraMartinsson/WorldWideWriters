@@ -32,7 +32,7 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        saved= False
+        saved = False
         if post.saved_post.filter(id=self.request.user.id).exists():
             saved = True
 
@@ -40,9 +40,8 @@ class PostDetail(View):
             request,
             "blog/post_detail.html",
             {"post": post,
-            "saved": saved,
-            },
-        )
+             "saved": saved, },
+             )
 
 
 def user_post(request):
@@ -56,13 +55,12 @@ def user_post(request):
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)
-            post.save()  
+            post.save()
             messages.add_message(
                 request, messages.SUCCESS,
-        'Post submitted and awaiting approval'
-    )   
+                'Post submitted and awaiting approval')
         return redirect("home")
-      
+
     return render(
         request,
         "blog/user_post.html",
@@ -70,7 +68,6 @@ def user_post(request):
             "post_form": post_form,
         },
     )
-    
 
 
 def post_edit(request, id):
@@ -91,10 +88,10 @@ def post_edit(request, id):
             },
         )
         messages.add_message(
-                request, messages.SUCCESS,
-        'Post edited!'
-    )
+            request, messages.SUCCESS,
+            'Post edited!')
         return redirect("home")
+
 
 def post_delete(request, id):
     """
@@ -103,7 +100,7 @@ def post_delete(request, id):
     post = Post.objects.get(pk=id)
     post.delete()
     messages.add_message(
-                request, messages.SUCCESS,
+        request, messages.SUCCESS,
         'Post deleted!'
     )
     return redirect("home")
@@ -121,7 +118,7 @@ def user_profile(request):
     return HttpResponse(template.render(context, request))
 
 
-class PostSaved(View):  
+class PostSaved(View):
     """
     View for users to save posts in their profile
     """
@@ -131,15 +128,13 @@ class PostSaved(View):
         if post.saved_post.filter(id=request.user.id).exists():
             post.saved_post.remove(request.user)
             messages.add_message(
-                    request, messages.SUCCESS,
-            'Post unsaved!'
-        )
+                request, messages.SUCCESS,
+                'Post unsaved!')
         else:
             post.saved_post.add(request.user)
             messages.add_message(
-                    request, messages.SUCCESS,
-            'Post saved!'
-        )
+                request, messages.SUCCESS,
+                'Post saved!')
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 

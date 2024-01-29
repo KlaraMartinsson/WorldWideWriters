@@ -11,6 +11,3 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ('continents', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
-
-
-# Register your models here.

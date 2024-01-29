@@ -39,4 +39,3 @@ class Post(models.Model):
         name of author
         """
         return f"{self.title} | Written by {self.author}"
-
