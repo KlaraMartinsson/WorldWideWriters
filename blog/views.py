@@ -98,12 +98,12 @@ def post_delete(request, id):
     View for users to delete their posts
     """
     post = Post.objects.get(pk=id)
-    post.delete()
-    messages.add_message(
-        request, messages.SUCCESS,
-        'Post deleted!'
-    )
-    return redirect("home")
+    if post.author == request.user:
+        post.delete()
+        messages.add_message(request, messages.SUCCESS,'Post deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'Error deleting the post. Try again.')
+    return redirect("user_profile")
 
 
 def user_profile(request):

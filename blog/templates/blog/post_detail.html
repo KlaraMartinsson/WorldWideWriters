@@ -3,40 +3,43 @@
 
 {% block content %}
 <!-- Displaying full post -->
-<section>
-    <div class="container-lg mt-5 mb-5">
-        <div class="row card p-4">
-            <!-- Article Section -->
+<div class="container-lg mt-5 mb-5">
+    <div class="row card p-4">
+        {% if "placeholder" in post.post_image.url %}
+        <img src="{% static 'images/default.jpg' %}" alt="placeholder image">
+        {% else %}
+        <img src=" {{ post.post_image.url }}" alt="{{ post.title }} image">
+        {% endif %}
         <article>
-            {% if "placeholder" in post.post_image.url %}
-            <img  src="{% static 'images/default.jpg' %}" alt="placeholder image">
-            {% else %}
-            <img src=" {{ post.post_image.url }}" alt="{{ post.title }}">
-            {% endif %}
             <h1 class="mt-4">{{ post.title }}</h1>
-            <div>{{ post.content | safe }}
-            <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
+            <div>
+                {{ post.content | safe }}
+                <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
             </div>
         </article>
-            <div class="col-1 align-self-end">
-                {% if user.is_authenticated %}
-                <form class="d-inline" action="{% url 'post_saved' post.slug %}" method="POST">
-                    {% csrf_token %}
-                    {% if not saved %}
-                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-regular fa-bookmark fa-2xl"></i></button>
-                    {% else %}
-                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i class="fa-solid fa-bookmark fa-2xl"></i></button>
-                    {% endif %}
+    <div class="row">
+        <div class="col-6">
+            {% if user.is_authenticated and post.author == request.user%}
+            <a href="{% url 'post_edit' post.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'post_delete' post.pk %}" class="btn btn-secondary">Delete Post</a>
+            {% endif %}
+        </div>
+        <div class="col-6">
+            {% if user.is_authenticated %}
+            <form action="{% url 'post_saved' post.slug %}" method="POST">
+                {% csrf_token %}
+                {% if not saved %}
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved align-items-end"><i
+                        class="fa-regular fa-bookmark fa-2xl"></i></button>
+                {% else %}
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i
+                        class="fa-solid fa-bookmark fa-2xl"></i></button>
                 {% endif %}
-                </form>
-            </div>
-            <div class="col-1">
-                {% if user.is_authenticated and post.author == request.user%}
-                <a href="{% url 'post_edit' post.pk %}"class="btn btn-primary">Edit</a>
-                {% endif %}
-            </div>
+            </form>
+            {% endif %}
         </div>
     </div>
-</section>
+    </div>
+</div>
 <script src="https://kit.fontawesome.com/2da612ed01.js" crossorigin="anonymous"></script>
 {% endblock content %}
