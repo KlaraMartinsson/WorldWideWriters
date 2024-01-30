@@ -17,7 +17,7 @@
                         <p>{{mydata.excerpt}}</p>
                         <p>Author | {{mydata.author}}</p>
                         {% if mydata.status == 0 %}
-                        <p class="text-muted">Post is awaiting approval.</p>
+                            <p class="text-muted">Post is awaiting approval.</p>
                         {% endif %}
                         <a href="{% url 'post_detail' mydata.slug %}" class="btn btn-sm btn-primary">Read More</a>
                         <a href="{% url 'post_edit' mydata.pk %}"class="btn btn-sm btn-secondary">Edit</a>
