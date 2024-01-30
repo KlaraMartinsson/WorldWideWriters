@@ -12,7 +12,6 @@ body {
 
 
 /* Navbar */
-
 .navbar-light .navbar-nav .nav-link {
     font-weight: 400;
     font-size: large;
@@ -24,8 +23,12 @@ body {
     color: white;
 }
 
-/* Font Sizes */
+.navbar-light .navbar-toggler {
+    color: rgba(255, 255, 255, 0.55);
+    border-color: white;
+}
 
+/* Font Sizes */
 p {
     font-size: 1.2rem;
 }
