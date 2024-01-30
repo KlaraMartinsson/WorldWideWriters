@@ -14,14 +14,14 @@ body {
 /* Navbar */
 
 .navbar-light .navbar-nav .nav-link {
-    color: #0a58ca;
     font-weight: 400;
     font-size: large;
+    color: white;
 }
 
 .navbar-light .navbar-brand {
-    color: #084298;
     font-weight: bolder;
+    color: white;
 }
 
 /* Font Sizes */
