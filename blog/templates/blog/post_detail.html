@@ -19,10 +19,10 @@
         </article>
     <div class="row">
         <div class="col-6">
-        <a href="{% url 'post_list' %}" class="btn btn-primary">Go back</a>
+        <a href="{% url 'post_list' %}" class="btn btn-primary mb-2">Go back</a>
             {% if user.is_authenticated and post.author == request.user%}
-            <a href="{% url 'post_edit' post.pk %}" class="btn btn-secondary">Edit</a>
-            <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete Post</a>
+            <a href="{% url 'post_edit' post.pk %}" class="btn btn-secondary mb-2">Edit</a>
+            <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger mb-2">Delete Post</a>
             {% endif %}
         </div>
         <div class="col-6">
