@@ -18,11 +18,6 @@ body {
     font-size: large;
 }
 
-.navbar .container-fluid {
-    border: 1px;
-    height: 60px;
-}
-
 .navbar-light .navbar-brand {
     color: #084298;
     font-weight: bolder;
@@ -38,9 +33,6 @@ p {
     font-size: 1rem;
 }
 
-h2{
-    color:black;
-}
 
 /* Background color for the card container of all my elements */
 .card {
