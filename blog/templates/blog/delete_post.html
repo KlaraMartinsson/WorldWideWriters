@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container card mt-5 mb-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col mt-4 mb-4 text-center">
+                <p>Are you sure you want to delete the {{post.title}}?</p>
+                <a href="{% url 'post_delete' post.pk %}" class="btn btn-primary">Delete Post</a>
+                <a class="btn btn-primary" href="{% url 'index' %}">Cancel</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

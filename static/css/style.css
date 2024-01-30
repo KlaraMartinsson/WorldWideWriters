@@ -1,6 +1,6 @@
 /* Body */
 body {
-    background-color: #faf7ea;
+    background-color: #fafafa;
 }
 
 /* Hero page for the homepage */ 
@@ -30,6 +30,7 @@ body {
 
 .navbar-light .navbar-brand {
     color: #084298;
+    font-weight: bolder;
 }
 
 /* Font Sizes */
