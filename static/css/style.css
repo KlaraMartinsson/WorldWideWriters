@@ -1,6 +1,7 @@
 /* Body */
 body {
     background-color: #1844A3;
+    color: white;
 }
 
 /* Hero page for the homepage */ 
@@ -27,7 +28,6 @@ body {
 
 p {
     font-size: 1.2rem;
-    color: white;
 }
 
 .text-small{
@@ -38,10 +38,6 @@ p {
 /* Background color for the card container of all my elements */
 .card {
     background-color: #0A3A9E;
-}
-
-h1, h2, h3 {
-    color: #ffffff;
 }
 
 
