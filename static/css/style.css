@@ -1,6 +1,6 @@
 /* Body */
 body {
-    background-color: #fafafa;
+    background-color: #1844A3;
 }
 
 /* Hero page for the homepage */ 
@@ -27,6 +27,7 @@ body {
 
 p {
     font-size: 1.2rem;
+    color: white;
 }
 
 .text-small{
@@ -36,8 +37,13 @@ p {
 
 /* Background color for the card container of all my elements */
 .card {
-background-color: #fbfadf;
+    background-color: #0A3A9E;
 }
+
+h1, h2, h3 {
+    color: #ffffff;
+}
+
 
 /* Button for saving posts */ 
 .btn-saved {

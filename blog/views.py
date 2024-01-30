@@ -59,7 +59,7 @@ def user_post(request):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Post submitted and awaiting approval')
-        return redirect("home")
+        return redirect("user_profile")
 
     return render(
         request,

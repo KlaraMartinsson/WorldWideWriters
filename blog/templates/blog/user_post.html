@@ -8,9 +8,13 @@
     <div class="container-md card mt-5 mb-5 p-3">
         <div class="row justify-content-md-center">
             {% if user.is_authenticated %}
-            <h3>Leave a post:</h3>
-            <p>Posting as: {{ user.username }}</p>
-            <form
+            <div class="col-6">
+                <h3>Leave a post:</h3>
+            </div>
+            <div class="col-6">
+                <p class="text-end">Posting as: {{ user.username }}</p>
+            </div>
+            <form class="text-white"
             id="postForm"
             method="post"
             enctype="multipart/form-data"

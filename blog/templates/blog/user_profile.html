@@ -3,7 +3,7 @@
 {% block content %}
 <section>
     <h1 class="text-center mt-5">My Posts</h1>
-    <div class="container card mt-5">
+    <div class="container card mt-3">
         <div class="row">
             {% for mydata in mymembers %}
                 {% if user == mydata.author %}
@@ -30,7 +30,7 @@
 </section>
 <section>
     <h1 class="text-center mt-5">My Saved Posts</h1>
-    <div class="container card mt-5 mb-5">
+    <div class="container card mt-3 mb-5">
         <div class="row">
             {% for mydata in mymembers %}
                 {% if request.user in mydata.saved_post.all %}
