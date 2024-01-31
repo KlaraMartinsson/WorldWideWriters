@@ -221,13 +221,13 @@ This includes code validation, performance testing, cross-device testing, testin
 A good result was presented on the desktop test.
 <details>
 <summary>Desktop</summary>
-![desktop](static/images/readme-images/lighthouse-desktop-check.jpg)
+<img src="static/images/readme-images/lighthouse-desktop-check.jpg">
 </details>
 
 On Mobile the result was not as good as on desktop. It seems that the boostrap cdn causes the page to render slower on mobile.
 <details>
 <summary>Mobile</summary>
-![desktop](static/images/readme-images/lighthouse-mobile-check.jpg)
+<img src="static/images/readme-images/lighthouse-mobile-check.jpg">
 </details>
 
 ### Code Validation
@@ -237,25 +237,30 @@ All HTML code has passed through validation using [W3 Markup Validator](https://
 
 <details>
 <summary>HTML Validation</summary>
-![html](static/images/readme-images/html-check.jpg)
+<img src="static/images/readme-images/html-check.jpg">
 </details>
 
 #### CSS
 
-All CSS files has passed through validation and shows no errors:
+All CSS files has passed through validation using [Jigsaw Validator](https://jigsaw.w3.org/css-validator/) and shows no errors:
 <details>
 <summary>Whole page</summary>
-![css](static/images/readme-images/css-check.jpg)
+<img src="static/images/readme-images/css-check.jpg">
 </details>
 
 <details>
 <summary>CSS file</summary>
-![css](static/images/readme-images/css-check2.jpg)
+<img src="static/images/readme-images/css-check2.jpg">
 </details>
 
 #### Python
 
-All Python files has passed through validation and shows no errors:
+All Python files has passed through validation using [Pep8](https://pep8ci.herokuapp.com/) and shows no errors:
+<details>
+<summary>world_wide_writers/settings.py</summary>
+<img src="static/images/readme-images/css-check2.jpg">
+</details>
+
 
 ## Testing User Stories
 
