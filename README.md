@@ -167,6 +167,8 @@ Some future adations the website could have are:
 
 - Can't create a post with the same title as an already existing post.
 - The element tags are presenting when a admin is making a post through the admin page and try to edit it through the website.
+- When editing a post the image disappears and the user have to upload the image again.
+- After publishing the post from admin the new lines disappears.
 
 ### Fixed bugs
 
