@@ -77,7 +77,8 @@ I emphasized a consistent layout and design throughout the entire page.
 ### Colors
 The colors of the website are important for shaping a good UX. This website are opted for a harmonious combination of blue and white.
 The colors used creates a strong contrast between the text and the background, making the text easier to read. This contrast is particularly evident in the combination of white text on a blue background. This contrast makes the website more visually appealing and user-friendly. 
-![Color scheme was made at coolors.co](/static/images/readme-images/colors.png)
+![Color scheme](/static/images/readme-images/colors.png)
+Color scheme was made at [coolors.co](https://coolors.co/)
 
 ### Fonts
 The WorldWideWriters website are using the default fonts provided by Bootstrap due to its cleanness and readability.
@@ -213,8 +214,53 @@ post_form = PostForm(request.POST, request.FILES)
 - Font Awesome: Font Awesome is a website that generates icons. I used it for my save post icon and create post icon.
 
 # Testing
+The WorldWideWriters website been through a lot of manual testing by myself, friends, mentors and family.
+This includes code validation, performance testing, cross-device testing, testing if user stories are completed and feedback messages for users.
 
-## Manual testing
+#### Lighthouse result
+A good result was presented on the desktop test.
+<details>
+<summary>Desktop</summary>
+![desktop](static/images/readme-images/lighthouse-desktop-check.jpg)
+</details>
+
+On Mobile the result was not as good as on desktop. It seems that the boostrap cdn causes the page to render slower on mobile.
+<details>
+<summary>Mobile</summary>
+![desktop](static/images/readme-images/lighthouse-mobile-check.jpg)
+</details>
+
+### Code Validation
+
+#### HTML
+All HTML code has passed through validation using [W3 Markup Validator](https://validator.w3.org/nu/) and shows no errors:
+
+<details>
+<summary>HTML Validation</summary>
+![html](static/images/readme-images/html-check.jpg)
+</details>
+
+#### CSS
+
+All CSS files has passed through validation and shows no errors:
+<details>
+<summary>Whole page</summary>
+![css](static/images/readme-images/css-check.jpg)
+</details>
+
+<details>
+<summary>CSS file</summary>
+![css](static/images/readme-images/css-check2.jpg)
+</details>
+
+#### Python
+
+All Python files has passed through validation and shows no errors:
+
+## Testing User Stories
+
+Testing of the User stories for the project.
+All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/projects/4)
 
 # Deployment
 
