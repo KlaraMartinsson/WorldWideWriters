@@ -41,6 +41,7 @@ p {
 /* Background color for the card container of all my elements */
 .card {
     background-color: #0A3A9E;
+    border: 2px bold;
 }
 
 

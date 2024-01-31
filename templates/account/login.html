@@ -9,7 +9,7 @@
 
 <div class="container-md mt-5">
     <div class="row justify-content-center">
-        <div class="col-8 card  mt-5 p-5">
+        <div class="col col-lg-8 card  mt-5 p-5">
             <h1>{% trans "Sign In" %}</h1>
             <p>{% blocktrans %} Welcome back to WorldWideWriters. Ready to share some knowledge about travels? <br> Sign In!</p>
             <p>If you have not created an account yet, then please
@@ -21,7 +21,7 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                <button class="primaryAction btn-primary" type="submit">{% trans "Sign In" %}</button>
+                <button class=" ms-3 primaryAction btn-primary btn" type="submit">{% trans "Sign In" %}</button>
             </form>
         </div>
     </div>
