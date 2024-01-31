@@ -4,7 +4,8 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 CONTINENT = (
-    (0, "None"), (1, "North America"), (2, "South America"), (3, "Africa"), (4, "Europe"), (5, "Asia"), (6, "Oceania"), (7, "Antarctica"))
+    (0, "None"), (1, "North America"), (2, "South America"), (3, "Africa"),
+    (4, "Europe"), (5, "Asia"), (6, "Oceania"), (7, "Antarctica"))
 
 
 # Create your models here.

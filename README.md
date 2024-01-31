@@ -258,9 +258,38 @@ All CSS files has passed through validation using [Jigsaw Validator](https://jig
 All Python files has passed through validation using [Pep8](https://pep8ci.herokuapp.com/) and shows no errors:
 <details>
 <summary>world_wide_writers/settings.py</summary>
-<img src="static/images/readme-images/css-check2.jpg">
+<img src="static/images/readme-images/settings-check.jpg">
 </details>
 
+<details>
+<summary>world_wide_writers/urls.py</summary>
+<img src="static/images/readme-images/www-urls-check.jpg">
+</details>
+
+<details>
+<summary>blog/models.py</summary>
+<img src="static/images/readme-images/models-check.jpg">
+</details>
+
+<details>
+<summary>blog/forms.py</summary>
+<img src="static/images/readme-images/forms-check.jpg">
+</details>
+
+<details>
+<summary>blog/views.py</summary>
+<img src="static/images/readme-images/views-check.jpg">
+</details>
+
+<details>
+<summary>blog/urls.py</summary>
+<img src="static/images/readme-images/urls-check.jpg">
+</details>
+
+<details>
+<summary>blog/admin.py</summary>
+<img src="static/images/readme-images/admin-check.jpg">
+</details>
 
 ## Testing User Stories
 
