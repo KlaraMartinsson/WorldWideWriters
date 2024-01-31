@@ -397,27 +397,27 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 | **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
 |-------------|------------|---------------------|-------------------|-------------------|
-| 11 | Appealing website. | As a site user I want to visit a visually appealing and user-friendly homepage so that I can enjoy being on the website. | :heavy_check_mark: |
-| 2 | User Friendly Navigation. | As a site user I can navigate the webpage so that I can access what I'm looking for. | :heavy_check_mark: |
-| 14 | Continent menu. | As a site user I can click on a continent in the navigation bar so that I can read about the countries that interests me. | :heavy_check_mark: |
-| 10 | Open a post. | As a site user I can click on a post so that I can read all of the text in it. | :heavy_check_mark: |
-| 11 | Search bar. | As a site user I can search for the things I'm interested in so that it's easy to access and saves me time. | ❌ |
+| 11 | Appealing website. | As a site user I want to visit a visually appealing and user-friendly homepage so that I can enjoy being on the website. | The site user will visit a visually appealing and user-friendly homepage. The homepage should be easy to navigate and have a clear layout. As a result, the site user will enjoy being on the website and will be more likely to return and explore other pages. | :heavy_check_mark: |
+| 2 | User Friendly Navigation. | As a site user I can navigate the webpage so that I can access what I'm looking for. | The site user will be able to navigate the webpage easily and quickly. The webpage should have a clear and intuitive navigation structure with a clear path to all the important pages. |:heavy_check_mark: |
+| 14 | Continent menu. | As a site user I can click on a continent in the navigation bar so that I can read about the countries that interests me. | The site user will be able to click on a continent in the navigation bar and be taken to a page where they can read about the countries in that continent. | :heavy_check_mark: |
+| 10 | Open a post. | As a site user I can click on a post so that I can read all of the text in it. | The site user will be able to click on a post and be taken to a page where they can read all of the text in it. The page should display the full text of the post, including any images | :heavy_check_mark: |
+| 11 | Search bar. | As a site user I can search for the things I'm interested in so that it's easy to access and saves me time. | The site user will be able to search for the things they are interested in. | ❌ |
 
-2. User Engagement (Registered User)
-
-| **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
-|-------------|------------|---------------------|-------------------|-------------------|
-| 1 | Account registration. | As a site user I can register an account so I can contribute and be a part of the community. | :heavy_check_mark: |
-| 3 | Manage Own Posts. | As a registered user I can publish and manage my own posts so that I can share my knowledge and experience. | :heavy_check_mark: |
-| 8 | Save posts. | As a registered user I can save posts to my profile so that I have easy access to the things I'm interested in. | :heavy_check_mark: |
-| 4 | Submitting Comments. | As a registered user I can submit comments so that I can engage in the post. | ❌ |
-| 5 | User Profile. | As a registered user I can access my profile so that I can change my details and information. | :heavy_check_mark: |
-
-3. Adminstration Management (Admin Moderator)
+1. User Engagement (Registered User)
 
 | **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
 |-------------|------------|---------------------|-------------------|-------------------|
-| 7 | Manage posts and comments. | As a site admin I can read, organize, approve and delete emissions so that I can manage the websites content. | :heavy_check_mark: |
+| 1 | Account registration. | As a site user I can register an account so I can contribute and be a part of the community. The site user will be able to easily and securely create an account on the website. | :heavy_check_mark: |
+| 3 | Manage Own Posts. | As a registered user I can publish and manage my own posts so that I can share my knowledge and experience. Registered users will have the ability to create, publish, and manage their own posts on the website. | :heavy_check_mark: |
+| 8 | Save posts. | As a registered user I can save posts to my profile so that I have easy access to the things I'm interested in. | Registered users will be able to save posts to their profiles for easy reference and future access. | :heavy_check_mark: |
+| 4 | Submitting Comments. | As a registered user I can submit comments so that I can engage in the post. | Registered users will be able to submit comments to posts, enabling them to engage and share their perspectives. | ❌ |
+| 5 | User Profile. | As a registered user I can access my profile so that I can see and change my posts and see my saved posts |  Registered users will be able to access their profiles to view and edit their posts and access their saved posts. | :heavy_check_mark: |
+
+1. Adminstration Management (Admin Moderator)
+
+| **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
+|-------------|------------|---------------------|-------------------|-------------------|
+| 7 | Manage posts and comments. | As a site admin I can read, organize, approve and delete emissions so that I can manage the websites content. | Site admins will have the ability to effectively manage the website's content by reviewing, organizing, approving, and deleting posts. | :heavy_check_mark: |
 
 # Deployment
 
