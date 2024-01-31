@@ -2,7 +2,7 @@
 
 Embrace your wanderlust and join World Wide Writers, a website where travel enthusiasts share their adventures and inspire others to explore the world. Here, you can create posts and save your favorite travel posts from fellow adventurers. Share travel itineraries, exchange recommendations, and start planning your next adventure! World Wide Writers acts as your personal travel companion, helping you plan and execute your dream adventures.
 
-[View the live webpage here.](#)
+[View the live webpage here.](https://world-wide-writers-40547ad915d2.herokuapp.com/)
 
 ## Project Goals
 
@@ -57,7 +57,7 @@ User Experience (Visitor)
 
 User Engagement (Registered User)
 
-- [Account registration (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/10)
+- [Account registration (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/1)
 - [Manage own posts (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/3)
 - [Save posts (schould-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/8)
 - [Submitting comments (won't-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/4)
@@ -72,18 +72,22 @@ Adminstration Management (Admin Moderator)
 This project used a postgresql database. **About the database and img of it!!**
 
 # Design
+
 I emphasized a consistent layout and design throughout the entire page.
 
 ### Colors
+
 The colors of the website are important for shaping a good UX. This website are opted for a harmonious combination of blue and white.
-The colors used creates a strong contrast between the text and the background, making the text easier to read. This contrast is particularly evident in the combination of white text on a blue background. This contrast makes the website more visually appealing and user-friendly. 
+The colors used creates a strong contrast between the text and the background, making the text easier to read. This contrast is particularly evident in the combination of white text on a blue background. This contrast makes the website more visually appealing and user-friendly.
 ![Color scheme](/static/images/readme-images/colors.png)
 Color scheme was made at [coolors.co](https://coolors.co/)
 
 ### Fonts
+
 The WorldWideWriters website are using the default fonts provided by Bootstrap due to its cleanness and readability.
 
 ### Images
+
 The hero-image was made through [Canvas](https://www.canva.com/) design plattform. The images in the post are from my personal gallerie or from the website [Pexels](https://www.pexels.com/) with free usage rights images.
 
 ### Wireframes
@@ -93,6 +97,7 @@ The hero-image was made through [Canvas](https://www.canva.com/) design plattfor
 ### Home page
 
 The home page has a nice blue layout with a big hero image stating quickly what the website is for. It also has an container with more information about the website and goes into detail what you can do. In that container there is a sign up and sign in button. If it is a registered user opening up the homepage it has buttons where the user can create post or see posts.
+
 <details>
 <summary>Home page for registered users</summary>
 <img src="static/images/readme-images/homepage-users.jpg">
@@ -112,6 +117,15 @@ The post page are displaying all of the published posts by registred users, incl
 <img src="static/images/readme-images/postspage.jpg">
 </details>
 
+### Continent filtering page
+
+Looks the same as the post page but is filtered by selected continent.
+
+<details>
+<summary>Continent page</summary>
+<img src="static/images/readme-images/continents.jpg">
+</details>
+
 ### Posts detail page
 
 In the detailed post page, you can view the complete article, including the post's image, title, author, and creation date. As a registered user, you have the option to save the post to your profile for future reading. You also have the option to edit or delete the post if the author is the same as the user.
@@ -123,14 +137,7 @@ In the detailed post page, you can view the complete article, including the post
 
 <details>
 <summary>Post detail page for visitors</summary>
-<img src="static/images/readme-images/postdetail.jpg">
-</details>
-
-### Continent filtering page
-
-<details>
-<summary>Continent page</summary>
-<img src="static/images/readme-images/continents.jpg">
+<img src="static/images/readme-images/postdetail-visitor.jpg">
 </details>
 
 ### Profile page
@@ -181,7 +188,6 @@ To provide users with feedback and ensure good user experience, successful and u
 <summary>Confirmation message</summary>
 <img src="static/images/readme-images/message.jpg">
 </details>
-
 
 ### Navigation
 
@@ -268,7 +274,7 @@ post_form = PostForm()
 if request.method == "POST":
 post_form = PostForm(request.POST, request.FILES)
 
-- Getting warnings about cloudinary not having a secure HTTPS. I fixed this by importing cloudinary to settings and making it secure by adding this code that I learned from other students on slack: 
+- Getting warnings about cloudinary not having a secure HTTPS. I fixed this by importing cloudinary to settings and making it secure by adding this code that I learned from other students on slack:
   cloudinary.config(
     secure=True,
 )
@@ -300,17 +306,21 @@ post_form = PostForm(request.POST, request.FILES)
 - Font Awesome: Font Awesome is a website that generates icons. I used it for my save post icon and create post icon.
 
 # Testing
+
 The WorldWideWriters website been through a lot of manual testing by myself, friends, mentors and family.
 This includes code validation, performance testing, cross-device testing, testing if user stories are completed and feedback messages for users.
 
 #### Lighthouse result
+
 A good result was presented on the desktop test.
+
 <details>
 <summary>Desktop</summary>
 <img src="static/images/readme-images/lighthouse-desktop-check.jpg">
 </details>
 
 On Mobile the result was not as good as on desktop. It seems that the boostrap cdn causes the page to render slower on mobile.
+
 <details>
 <summary>Mobile</summary>
 <img src="static/images/readme-images/lighthouse-mobile-check.jpg">
@@ -319,6 +329,7 @@ On Mobile the result was not as good as on desktop. It seems that the boostrap c
 ### Code Validation
 
 #### HTML
+
 All HTML code has passed through validation using [W3 Markup Validator](https://validator.w3.org/nu/) and shows no errors:
 
 <details>
@@ -381,6 +392,32 @@ All Python files has passed through validation using [Pep8](https://pep8ci.herok
 
 Testing of the User stories for the project.
 All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/projects/4)
+
+1. User Experience (Visitor)
+
+| **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
+|-------------|------------|---------------------|-------------------|-------------------|
+| 11 | Appealing website. | As a site user I want to visit a visually appealing and user-friendly homepage so that I can enjoy being on the website. | :heavy_check_mark: |
+| 2 | User Friendly Navigation. | As a site user I can navigate the webpage so that I can access what I'm looking for. | :heavy_check_mark: |
+| 14 | Continent menu. | As a site user I can click on a continent in the navigation bar so that I can read about the countries that interests me. | :heavy_check_mark: |
+| 10 | Open a post. | As a site user I can click on a post so that I can read all of the text in it. | :heavy_check_mark: |
+| 11 | Search bar. | As a site user I can search for the things I'm interested in so that it's easy to access and saves me time. | ❌ |
+
+2. User Engagement (Registered User)
+
+| **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
+|-------------|------------|---------------------|-------------------|-------------------|
+| 1 | Account registration. | As a site user I can register an account so I can contribute and be a part of the community. | :heavy_check_mark: |
+| 3 | Manage Own Posts. | As a registered user I can publish and manage my own posts so that I can share my knowledge and experience. | :heavy_check_mark: |
+| 8 | Save posts. | As a registered user I can save posts to my profile so that I have easy access to the things I'm interested in. | :heavy_check_mark: |
+| 4 | Submitting Comments. | As a registered user I can submit comments so that I can engage in the post. | ❌ |
+| 5 | User Profile. | As a registered user I can access my profile so that I can change my details and information. | :heavy_check_mark: |
+
+3. Adminstration Management (Admin Moderator)
+
+| **ID** | **User Story** |**As a..** | **Action/Expected result** | **Pass/Fail** |
+|-------------|------------|---------------------|-------------------|-------------------|
+| 7 | Manage posts and comments. | As a site admin I can read, organize, approve and delete emissions so that I can manage the websites content. | :heavy_check_mark: |
 
 # Deployment
 
