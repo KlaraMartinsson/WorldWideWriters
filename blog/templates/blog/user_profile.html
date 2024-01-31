@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <section>
-    <h1 class="text-center mt-5">My Posts</h1>
+    <h1 class="text-center mt-5">My Posts <i class="fa-solid fa-pen-to-square"></i></h1>
     <div class="container card mt-3">
         <div class="row">
             {% for mydata in mymembers %}
@@ -48,7 +48,7 @@
     </div>
 </section>
 <section>
-    <h1 class="text-center mt-5">My Saved Posts</h1>
+    <h1 class="text-center mt-5">My Saved Posts  <i class="fa-solid fa-bookmark"></i></h1>
     <div class="container card mt-3 mb-5">
         <div class="row">
             {% for mydata in mymembers %}

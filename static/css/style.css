@@ -51,3 +51,13 @@ p {
     background: transparent;
     color: white
 }
+
+@include media-breakpoint-up(sm) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

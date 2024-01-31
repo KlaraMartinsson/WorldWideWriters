@@ -23,7 +23,7 @@
             {% if user.is_authenticated and post.author == request.user%}
             <a href="{% url 'post_edit' post.pk %}" class="btn btn-secondary mb-2">Edit</a>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-danger mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Delete
             </button>
             
@@ -61,5 +61,4 @@
     </div>
     </div>
 </div>
-<script src="https://kit.fontawesome.com/2da612ed01.js" crossorigin="anonymous"></script>
 {% endblock content %}
