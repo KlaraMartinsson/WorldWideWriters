@@ -18,9 +18,9 @@
                 adventurers. Share travel itineraries, exchange recommendations, and start planning your next adventure!</p>
                 <div class="col mb-4 text-center">
                     <a class="btn btn-lg btn-primary me-3 mb-3" aria-current="page"
-                        href="{% url 'post_list' %}">Go to posts!</a>
+                        href="{% url 'post_list' %}">Go to posts</a>
                     <a class="btn btn-lg btn-primary mb-3 {% if request.path == user_post_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'user_post' %}">Create a post!</a>
+                        href="{% url 'user_post' %}">Create a post</a>
                 </div>
             {% else %}
                 <h1 class="text-center mt-5">Welcome to WorldWideWriters!</h1>

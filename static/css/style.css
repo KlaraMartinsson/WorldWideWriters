@@ -40,8 +40,9 @@ p {
 
 /* Background color for the card container of all my elements */
 .card {
-    background-color: #0A3A9E;
-    border: 3px #09328b solid;
+    background-color: #0a3694;
+    border: 4px #09328b solid;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
 
@@ -50,14 +51,4 @@ p {
     border: none;
     background: transparent;
     color: white
-}
-
-@include media-breakpoint-up(sm) {
-    h1 {
-        font-size: 1.2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
 }
