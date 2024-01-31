@@ -5,14 +5,12 @@
 {%block content %}
 <!-- A form for registered users to make posts -->
 <section>
-    <div class="container-md card mt-5 mb-5 p-3">
+    <h1 class="text-center mt-5">Create a Post <i class="fa-solid fa-pen-to-square"></i></h1>
+    <div class="container-md card mb-5 p-3">
         <div class="row justify-content-md-center">
             {% if user.is_authenticated %}
-            <div class="col-6">
-                <h3>Leave a post:</h3>
-            </div>
-            <div class="col-6">
-                <p class="text-end">Posting as: {{ user.username }}</p>
+            <div class="col">
+                <p>Posting as: {{ user.username }}</p>
             </div>
             <form class="text-white"
             id="postForm"

@@ -6,7 +6,6 @@
         <div class="row justify-content-md-center">
             {% for post in object_list %}
             <div class="col-md-6 col-lg-4 p-5">
-                <hr>
                 {% if "placeholder" in post.post_image.url %}
                 <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                 {% else %}
@@ -16,7 +15,6 @@
                 <p>{{post.excerpt}}</p>
                 <p class="text-small">Author | {{post.author}}</p>
                 <a href="{% url 'post_detail' post.slug %}" class="btn btn-sm btn-primary">Read More</a>
-                <hr>
             </div>
             {% endfor %}
         </div>
