@@ -30,7 +30,7 @@ class PostDetail(View):
     Request the data for a single blog post
     """
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         saved = False
         if post.saved_post.filter(id=self.request.user.id).exists():
