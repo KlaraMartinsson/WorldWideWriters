@@ -90,7 +90,7 @@ def post_edit(request, id):
         messages.add_message(
             request, messages.SUCCESS,
             'Post edited!')
-        return redirect("home")
+        return redirect("user_profile")
 
 
 def post_delete(request, id):

@@ -12,9 +12,10 @@
         {% endif %}
         <article>
             <h1 class="mt-4">{{ post.title }}</h1>
+            <hr>
             {{ post.content | safe }}
-            <br>
-            <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
+            <hr>
+            <p class="text-small mt-4">{{ post.author }} | {{ post.created_on }}</p>
         </article>
     <div class="row">
         <div class="col-6">
