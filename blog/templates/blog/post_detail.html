@@ -12,10 +12,8 @@
         {% endif %}
         <article>
             <h1 class="mt-4">{{ post.title }}</h1>
-            <div>
-                {{ post.content | safe }}
-                <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
+            {{ post.content | safe }}
+            <p class="text-small">{{ post.author }} | {{ post.created_on }}</p>
         </article>
     <div class="row">
         <div class="col-6">

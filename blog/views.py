@@ -100,9 +100,10 @@ def post_delete(request, id):
     post = Post.objects.get(pk=id)
     if post.author == request.user:
         post.delete()
-        messages.add_message(request, messages.SUCCESS,'Post deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Post deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'Error deleting the post. Try again.')
+        messages.add_message(request, messages.ERROR,
+                             'Error from deleting the post.')
     return redirect("user_profile")
 
 
@@ -144,9 +145,11 @@ class ContinentPosts(generic.ListView):
     """
     model = Post
     template_name = 'blog/continent_posts.html'
-
+    """
+    Default to 'None' if not provided
+    """
     def get_queryset(self):
-        continent = self.kwargs.get('continent', 0)  # Default to 'None' if not provided
+        continent = self.kwargs.get('continent', 0)
         return Post.objects.filter(continents=continent, status=1)
 
 
