@@ -69,15 +69,21 @@ Adminstration Management (Admin Moderator)
   
 ### Database Design
 
-This project used a postgresql database., who was first mapped out o a database schema. **About the database and img of it!!**
+This project used a postgresql database. **About the database and img of it!!**
 
 # Design
+I emphasized a consistent layout and design throughout the entire page.
 
 ### Colors
+The colors of the website are important for shaping a good UX. This website are opted for a harmonious combination of blue and white.
+The colors used creates a strong contrast between the text and the background, making the text easier to read. This contrast is particularly evident in the combination of white text on a blue background. This contrast makes the website more visually appealing and user-friendly. 
+![Color scheme was made at coolors.co](/static/images/readme-images/colors.png)
 
 ### Fonts
+The WorldWideWriters website are using the default fonts provided by Bootstrap due to its cleanness and readability.
 
 ### Images
+The hero-image was made through [Canvas](https://www.canva.com/) design plattform. The images in the post are from my personal gallerie or from the website [Pexels](https://www.pexels.com/) with free usage rights images.
 
 ### Wireframes
 
@@ -175,14 +181,20 @@ post_form = PostForm()
 if request.method == "POST":
 post_form = PostForm(request.POST, request.FILES)
 
+- Getting warnings about cloudinary not having a secure HTTPS. I fixed this by importing cloudinary to settings and making it secure by adding this code that I learned from other students on slack: 
+  cloudinary.config(
+    secure=True,
+)
+
 # Technologies Used
 
 ### Languages
 
-- Markdown
 - Python
 - HTML5
 - CSS3
+- Django Template Language
+- Markdown
   
 ### Frameworks
 
@@ -190,16 +202,15 @@ post_form = PostForm(request.POST, request.FILES)
 - Crispy Forms: Django Crispy Forms is a Python application that made my forms more user-friendly and visually appealing..
 - Bootstrap v5.0: Bootstrap is a framework to use for its easy responsiveness management tools and a lot more. I used it to make the website more available on all different screens and to reduce code work.
 - Cloudinary: Cloudinary has been a great tool to manage the websites storing and serving of images. It is a cloud-based media management platform.
-- Database
-- ElephantSQL:
+- ElephantSQL: Cloud based database storage.
 
 ### Tools
 
 - GitHub: I used GitHud for repositories storage and Agile project management using Kanban boards/issue tracking.
-- Codeanywhere:
+- Codeanywhere: Used to store and write code.
 - Heroku: Heroku is a cloud platform that I used for deployment to make this project into a live server.
 - Canva:I used Canva for its design platform to make the header image.
-- Font Awesome: Font Awesome is a website that generates icons. I used it for my save post icon.
+- Font Awesome: Font Awesome is a website that generates icons. I used it for my save post icon and create post icon.
 
 # Testing
 
