@@ -6,9 +6,31 @@ Embrace your wanderlust and join World Wide Writers, a website where travel enth
 
 ## Project Goals
 
+- Create a engaging community of travel enthusiasts.
+- Encourage users to share their travel experiences, tips, and recommendations.
+- Promote a positive and supportive environment where users can learn from each other.
+- Provide a good resource for users to plan and preparing for their future travel.
+- Making a user-friendly platform for creating, editing, and sharing travel posts.
+- Having a continent category filtering for users to find relevant travel information.
+
 ### User Goals
 
+- Create travel posts that document their journeys, share tips, and inspire others.
+- Read engaging stories and learn from the experiences of others to discover new destinations and activities.
+- Find travel guides and destination information to plan future trips.
+- Utilize the website's filtering capabilities to find information about relevant continent.
+- Discover hidden gems
+- Compare prices, find deals, and book travel accommodations through other users recommendations.
+- Save valuable travel posts for future reference and planning.
+- Share their own experiences and recommendations to contribute to the website.
+
 ### Site Owner Goals
+
+- Attract users who want's to create, share, and engage with travel content.
+- Make users feel welcommed and inspired
+- Become a resource for travel enthusiasts seeking inspiration and planning assistance
+- Create a visually appealing website design that is easy to navigate and use.
+- Implement responsive design to ensure optimal viewing across various devices.
 
 # User Experience
 
