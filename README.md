@@ -36,10 +36,30 @@ Embrace your wanderlust and join World Wide Writers, a website where travel enth
 
 ### Target Audience
 
-The target audience for World Wide Writers is people who are passionate about travel and enjoy sharing their experiences with others. It could be someone who enjoy the practice of writing good stories, someone who seek inspiration for there new adventure or just somebody who wants to learn about different cultures and destinations.
+The target audience for World Wide Writers is people who are passionate about travel and enjoy sharing their experiences with others. It could be someone who enjoy the practice of writing good stories, someone who seek inspiration for there new adventure or just somebody who wants to learn about different cultures, destinations and plan for future travels.
+To meet these requirements the website has full CRUD functionality, which means that a user can create a post, read their and others posts, update their post and delete their post. They can find inspiration in posts by others and share there experience by creating posts and plan their trips by saving posts from others to their profile.
 
 ### User Stories
 
+User Experience (Visitor)
+- [Appealing website (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/11)
+- [User friendly navigation (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/2)
+- [Continent menu (schould-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/6)
+- [Open a post (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/10)
+- [Search bar (could-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/9)
+
+User Engagement (Registered User)
+
+- [Account registration (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/10)
+- [Manage own posts (must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/3)
+- [Save posts (schould-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/8)
+- [Submitting comments (won't-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/4)
+- [User profile (should-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/5)
+
+Adminstration Management (Admin Moderator)
+
+- [Manage posts and comments(must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/7)
+  
 # Agile Methodology
 I worked on Agile Methodology through the project with Githubs issues feature.
 
