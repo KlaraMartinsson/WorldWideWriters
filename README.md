@@ -93,26 +93,95 @@ The hero-image was made through [Canvas](https://www.canva.com/) design plattfor
 ### Home page
 
 The home page has a nice blue layout with a big hero image stating quickly what the website is for. It also has an container with more information about the website and goes into detail what you can do. In that container there is a sign up and sign in button. If it is a registered user opening up the homepage it has buttons where the user can create post or see posts.
+<details>
+<summary>Home page for registered users</summary>
+<img src="static/images/readme-images/homepage-users.jpg">
+</details>
+
+<details>
+<summary>Home page for visitors</summary>
+<img src="static/images/readme-images/homepage-visitors.jpg">
+</details>
 
 ### Posts page
 
 The post page are displaying all of the published posts by registred users, including the posts image, title, excerpt and author.
 
+<details>
+<summary>Posts page</summary>
+<img src="static/images/readme-images/postspage.jpg">
+</details>
+
 ### Posts detail page
 
 In the detailed post page, you can view the complete article, including the post's image, title, author, and creation date. As a registered user, you have the option to save the post to your profile for future reading. You also have the option to edit or delete the post if the author is the same as the user.
 
+<details>
+<summary>Post detail page for registered users</summary>
+<img src="static/images/readme-images/postdetail.jpg">
+</details>
+
+<details>
+<summary>Post detail page for visitors</summary>
+<img src="static/images/readme-images/postdetail.jpg">
+</details>
+
+### Continent filtering page
+
+<details>
+<summary>Continent page</summary>
+<img src="static/images/readme-images/continents.jpg">
+</details>
+
 ### Profile page
 
-The profile page are only visual for registred users. Here they can see their posts and their saved posts. They also have the options to edit or delete their own posts.
+The profile page are only visual for registred users. Here they can see their own posts and their saved posts. They also have the options to edit their own posts. If a post is still awaiting approval a faded message is saying that under the author line.
+
+<details>
+<summary>My posts</summary>
+<img src="static/images/readme-images/myposts.jpg">
+</details>
+
+<details>
+<summary>My saved posts</summary>
+<img src="static/images/readme-images/savedposts.jpg">
+</details>
 
 ### User Account Management
 
 To manage accounts, there are sign-up/in and out pages. The sign-up form includes validation to ensure that accurate information is provided. The login form verifies that the username matches the password and other relevant credentials. The sign out page reassure that the user are sure about wanting to log out.
 
+<details>
+<summary>Sign in</summary>
+<img src="static/images/readme-images/signin.jpg">
+</details>
+
+<details>
+<summary>Sign up</summary>
+<img src="static/images/readme-images/signup.jpg">
+</details>
+
+<details>
+<summary>Sign out</summary>
+<img src="static/images/readme-images/signout.jpg">
+</details>
+
+### Create post page
+
+<details>
+<summary>Create post for registered users</summary>
+<img src="static/images/readme-images/createpost.jpg">
+</details>
+
 ### Confirmation messages
 
 To provide users with feedback and ensure good user experience, successful and unsuccessful actions will be accompanied by clear messages. For instance, upon successful registration, logging in, or logging out, a message will confirm the action and indicate the user's current status. Similarly, successful post creation, saving, or deletion will be accompanied by corresponding success messages.
+
+<details>
+<summary>Confirmation message</summary>
+<img src="static/images/readme-images/message.jpg">
+</details>
+
 
 ### Navigation
 
@@ -124,6 +193,11 @@ The top navigation bar displays the following options:
 - Continents: Menu to filter posts by continent
 - Sign In: Link to the sign-in page
 - Sign Up: Link to the sign-up page
+
+<details>
+<summary>Navbar for visitors</summary>
+<img src="static/images/readme-images/navbar-visitors.jpg">
+</details>
 
 In the homepage, visitors have the following buttons:
 
@@ -139,6 +213,16 @@ The top navigation bar displays the following options:
 - Create Post: Link to the create post page
 - Profile: Link to the user's profile page
 - Sign Out: Link to the sign-out page
+
+<details>
+<summary>Navbar for registered users</summary>
+<img src="static/images/readme-images/navbar-users.jpg">
+</details>
+
+<details>
+<summary>Navbar on smaller devices</summary>
+<img src="static/images/readme-images/navbar-smalldevice.jpg">
+</details>
 
 In the homepage, registered users have the following buttons:
 
