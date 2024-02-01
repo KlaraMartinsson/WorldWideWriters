@@ -433,7 +433,26 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 <img src="static/images/readme-images/registration.gif">
 
-#### Post detail
+#### Post create
+
+<img src="static/images/readme-images/createpost.gif">
+
+#### Post edit
+
+<img src="static/images/readme-images/editpost.gif">
+
+#### Post delete
+
+<img src="static/images/readme-images/postdelete.gif">
+
+#### Save posts
+
+<img src="static/images/readme-images/saveposts.gif">
+
+
+#### Responsivness
+
+<img src="static/images/readme-images/responsiveness.gif">
 
 # Deployment
 
