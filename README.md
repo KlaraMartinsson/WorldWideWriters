@@ -97,22 +97,19 @@ The hero-image was made through [Canvas](https://www.canva.com/) design plattfor
 <img src="static/images/readme-images/wireframes-homepage.jpg">
 </details>
 
-### Continent filtering page
-
-Looks the same as the post page but is filtered by selected continent.
-
 <details>
-<summary>Continent page</summary>
-<img src="static/images/readme-images/continents.jpg">
+<summary>Posts page</summary>
+<img src="static/images/readme-images/wireframes-posts.jpg">
 </details>
 
-### Continent filtering page
-
-Looks the same as the post page but is filtered by selected continent.
+<details>
+<summary>Profile page</summary>
+<img src="static/images/readme-images/wireframes-profile.jpg">
+</details>
 
 <details>
-<summary>Continent page</summary>
-<img src="static/images/readme-images/continents.jpg">
+<summary>Create Post page</summary>
+<img src="static/images/readme-images/wireframes-createpost.jpg">
 </details>
 
 # Features
