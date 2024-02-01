@@ -92,6 +92,29 @@ The hero-image was made through [Canvas](https://www.canva.com/) design plattfor
 
 ### Wireframes
 
+<details>
+<summary>Home page</summary>
+<img src="static/images/readme-images/wireframes-homepage.jpg">
+</details>
+
+### Continent filtering page
+
+Looks the same as the post page but is filtered by selected continent.
+
+<details>
+<summary>Continent page</summary>
+<img src="static/images/readme-images/continents.jpg">
+</details>
+
+### Continent filtering page
+
+Looks the same as the post page but is filtered by selected continent.
+
+<details>
+<summary>Continent page</summary>
+<img src="static/images/readme-images/continents.jpg">
+</details>
+
 # Features
 
 ### Home page
@@ -424,6 +447,7 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 | 7 | Manage posts and comments. | As a site admin I can read, organize, approve and delete emissions so that I can manage the websites content. | Site admins will have the ability to effectively manage the website's content by reviewing, organizing, approving, and deleting posts. | :heavy_check_mark: |
 
 ### Manual testing
+Videos were converted to GIFs using [Ezgif](https://ezgif.com/video-to-gif?err=expired).
 
 #### Navbar
 
@@ -455,7 +479,6 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 <img src="static/images/readme-images/savedposts.gif">
 
-
 #### Responsivness
 
 - Homepage
@@ -466,7 +489,6 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 - Profile
 <img src="static/images/readme-images/profile-res.gif">
-
 
 # Deployment
 
