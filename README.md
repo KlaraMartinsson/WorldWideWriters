@@ -516,3 +516,17 @@ Videos were converted to GIFs using [Ezgif](https://ezgif.com/video-to-gif?err=e
 # Deployment
 
 # Credits
+
+## Content 
+The content from the website is by Googles [Ai Bard](https://bard.google.com/chat) chat.
+
+## Media
+I made the hero image using Canva. I took images for the posts from Pexels website.
+I used Font Awesome to generate icons. I used it for my save post icon and create post icon. My favicon is made at [Formito](https://formito.com/tools/favicon).
+
+## Code used
+I used bootstraps template for creating the navbar. I also used bootstraps documentation to make a modal with a warning for deleting posts.
+
+## Acknowledgementes
+My family and friends for checking out the webpage on their screens and giving critic.
+My mentor Seun for giving helpful advise about the design. Also my mentor Spencer for giving good advices, trying out the website and checking my code and readme. 
