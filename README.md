@@ -69,7 +69,7 @@ Adminstration Management (Admin Moderator)
 - [Manage posts and comments(must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/7)
   
 ### Database Design
-![Database](/static/images/readme-images/database.png)
+![Database](/static/images/readme-images/database.jpg)
 
 In order to establish the database schema for this project I used dbdiagram.io website. This platform assisted me in planning and implement the database for the blog application.
 
