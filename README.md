@@ -68,11 +68,33 @@ Adminstration Management (Admin Moderator)
 - [Manage posts and comments(must-have)](https://github.com/KlaraMartinsson/WorldWideWriters/issues/7)
   
 ### Database Design
+![Database](/static/images/readme-images/database.png)
 
-This project used a postgresql database. **About the database and img of it!!**
+In order to establish the database schema for this project I used dbdiagram.io website. This platform assisted me in planning and implement the database for the blog application.
+
+#### Database Schema
+
+- User Model:
+  - user_id: A unique identifier for each user (Primary Key).
+  - username: The username of the user.
+  - email: The email the user.
+  - password: The password of the user.
+
+- Post Model: 
+  - post_id: A unique identifier for each Post (Primary Key).
+  - author: A foreign key reference to the User entity.
+  - title: The title for the Post.
+  - slug: The slug for the Post (generated with the title).
+  - continents: The type of continent chosen for the Post
+  - content: The Post's content.
+  - status: A IntegerField keeping track of the status of the post, if it's published or a draft.
+  - excerpt: A short text about the Post.
+  - created_on: A DateTimeField indicating when the Post was created.
+  - updated_on: A DateTimeField indicating when the Post was last edited.
+  - post_image: The image representing the Post using the cloudinary platform.
+  - saved_posts: A ManyToManyField keeping track of User's saved posts.
 
 # Design
-
 I emphasized a consistent layout and design throughout the entire page.
 
 ### Colors
@@ -88,28 +110,32 @@ The WorldWideWriters website are using the default fonts provided by Bootstrap d
 
 ### Images
 
-The hero-image was made through [Canvas](https://www.canva.com/) design plattform. The images in the post are from my personal gallerie or from the website [Pexels](https://www.pexels.com/) with free usage rights images.
+![Hero-image](/static/images/hero-image.png)
+
+The hero-image was made through [Canvas](https://www.canva.com/) design plattform. It was made to capture the attention of visitors and impart a comprehensive understanding of the websites purpose and offerings. The images in the post are from my personal gallery or from the website [Pexels](https://www.pexels.com/) with free usage rights images.
 
 ### Wireframes
+Wireframes served as a skeletal structure for the website, enabling a clear visualization of its intended design and layout.
+Wireframes where made at [Balsamiq](https://balsamiq.com/)
 
 <details>
 <summary>Home page</summary>
-<img src="static/images/readme-images/wireframes-homepage.jpg">
+<img src="static/images/readme-images/wireframe-homepage.jpg">
 </details>
 
 <details>
 <summary>Posts page</summary>
-<img src="static/images/readme-images/wireframes-posts.jpg">
+<img src="static/images/readme-images/wireframe-posts.jpg">
 </details>
 
 <details>
 <summary>Profile page</summary>
-<img src="static/images/readme-images/wireframes-profile.jpg">
+<img src="static/images/readme-images/wireframe-profile.jpg">
 </details>
 
 <details>
 <summary>Create Post page</summary>
-<img src="static/images/readme-images/wireframes-createpost.jpg">
+<img src="static/images/readme-images/wireframe-createpost.jpg">
 </details>
 
 # Features
@@ -319,7 +345,7 @@ post_form = PostForm(request.POST, request.FILES)
 - Crispy Forms: Django Crispy Forms is a Python application that made my forms more user-friendly and visually appealing..
 - Bootstrap v5.0: Bootstrap is a framework to use for its easy responsiveness management tools and a lot more. I used it to make the website more available on all different screens and to reduce code work.
 - Cloudinary: Cloudinary has been a great tool to manage the websites storing and serving of images. It is a cloud-based media management platform.
-- ElephantSQL: Cloud based database storage.
+- ElephantSQL: ElephantSQL is a PostgreSQL database as a service. It is ueed as a cloud based database storage for the application's data.
 
 ### Tools
 
