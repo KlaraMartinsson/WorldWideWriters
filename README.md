@@ -515,6 +515,89 @@ Videos were converted to GIFs using [Ezgif](https://ezgif.com/video-to-gif?err=e
 
 # Deployment
 
+## ElephantSQL Database
+WorldWideWriters is using ElephantSQL PostgreSQL Database
+
+- Click Create New Instance to start a new database.
+- Provide a name.
+- Select the Tiny Turtle (Free) plan.
+- You can leave the Tags blank.
+- Select the Region and Data Center closest to you.
+- Once created, click on the new database name, where you can view the database URL and Password.
+
+## Cloudinary
+WorldWideWriters is using Cloudinary
+
+- For Primary interest, you can choose Programmable Media for image and video API.
+- Optional: edit your assigned cloud name to something more memorable.
+- On your Cloudinary Dashboard, you can copy your API Environment Variable.
+- Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
+
+## Deploy on Heroku
+
+- Log into Heroku account or create an account.
+- Click the "New" button at the top right corner and select "Create New App".
+- Enter a unique application name
+- Select your region
+- Click "Create App"
+- 
+### Prepare environment and settings.py
+
+- In your workspace, create an env.py file in the main directory.
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+- Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+- Comment out the default database configuration.
+- Save all files and make migrations.
+- Add the Cloudinary URL to env.py
+- Add the Cloudinary libraries to the list of installed apps.
+- Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Link the file to the templates directory in Heroku.
+- Change the templates directory to TEMPLATES_DIR
+- Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+
+### Add the following Config Vars in Heroku
+
+- SECRET_KEY - This can be any Django random secret key
+- CLOUDINARY_URL - Insert your own Cloudinary API key
+- DISABLE_COLLECTSTATIC = 1 - this is temporary, and can be removed for the final deployment
+- DATABASE_URL - Insert your own ElephantSQL database URL here
+  
+## Heroku needs two additional files to deploy properly
+
+- requirements.txt
+- Procfile
+
+## Deploy
+
+- Make sure DEBUG = False in the settings.py
+- Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the GitHub repository is updated.
+- Click 'Open App' to view the deployed live site.
+
+Website is now deployed!
+
+## Fork the repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+Log in to GitHub and locate the GitHub Repository.
+
+At the top of the Repository just above the "Settings" Button on the menu, locate the "Fork" Button.
+
+You should now have a copy of the original repository in your GitHub account.
+
+## Making a Local Clone
+
+Log in to GitHub and locate the GitHub Repository
+Under the repository name, click "Clone or download".
+To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+Open Git Bash
+Change the current working directory to the location where you want the cloned directory to be made.
+Type git clone, and then paste the URL you copied in Step 3. $ git clone <https://github.com/YOUR-USERNAME/YOUR-REPOSITORY>
+Press Enter. Your local clone will be created.
+
+Your clone is now created!
+
 # Credits
 
 ## Content 
@@ -525,7 +608,9 @@ I made the hero image using Canva. I took images for the posts from Pexels websi
 I used Font Awesome to generate icons. I used it for my save post icon and create post icon. My favicon is made at [Formito](https://formito.com/tools/favicon).
 
 ## Code used
-I used bootstraps template for creating the navbar. I also used bootstraps documentation to make a modal with a warning for deleting posts.
+I used [bootstraps documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) for creating the navbar. I also used bootstraps documentation to make a modal with a warning for deleting posts.
+
+A lot of time has been spent on re-watching Code Institutes videos on Agile Methodologies, Django and Python to find solutions to problems. The code for this projcet was influenced by the Code Institute tutorial course on Django projects, "I think therefore I blog".
 
 ## Acknowledgementes
 My family and friends for checking out the webpage on their screens and giving critic.
