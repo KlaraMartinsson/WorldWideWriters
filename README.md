@@ -1,4 +1,5 @@
 # WorldWideWriters
+![Home page](/static/images/readme-images/homepage-users.jpg)
 
 Embrace your wanderlust and join World Wide Writers, a website where travel enthusiasts share their adventures and inspire others to explore the world. Here, you can create posts and save your favorite travel posts from fellow adventurers. Share travel itineraries, exchange recommendations, and start planning your next adventure! World Wide Writers acts as your personal travel companion, helping you plan and execute your dream adventures.
 
