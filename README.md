@@ -259,6 +259,8 @@ Some future adations the website could have are:
 - The element tags are presenting when a admin is making a post through the admin page and try to edit it through the website.
 - When editing a post the image disappears and the user have to upload the image again.
 - After publishing the post from admin the new lines disappears.
+- Users can create posts without writing content and excerpt
+- Users can create a post with only spaces in the title
 
 ### Fixed bugs
 
@@ -423,11 +425,13 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 #### Navbar
 
-<img src="static/images/readme-images/navbar.gif" width="250" height="250">
+<img src="static/images/readme-images/navbar.gif">
 
-#### Sign in/out/up
+#### Sign up/in/out
 
-![Registration Test]
+<img src="static/images/readme-images/registration.gif">
+
+#### Post detail
 
 # Deployment
 

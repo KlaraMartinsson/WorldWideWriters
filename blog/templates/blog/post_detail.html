@@ -19,7 +19,7 @@
         </article>
     <div class="row">
         <div class="col-6">
-        <a href="{% url 'post_list' %}" class="btn btn-primary mb-2">Go back</a>
+        <a href="{% url 'post_list' %}" class="btn btn-primary mb-2">Go back to posts</a>
             {% if user.is_authenticated and post.author == request.user%}
             <a href="{% url 'post_edit' post.pk %}" class="btn btn-secondary mb-2">Edit</a>
             <!-- Button trigger modal -->
