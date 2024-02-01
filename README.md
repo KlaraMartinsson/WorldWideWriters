@@ -423,11 +423,11 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 #### Navbar
 
-![Navbar Test](/static/images/readme-images/navbar.gif)
+<img src="static/images/readme-images/navbar.gif" width="250" height="250">
 
 #### Sign in/out/up
 
-![Registration Test](/static/images/readme-images/navbar.gif)
+![Registration Test]
 
 # Deployment
 
