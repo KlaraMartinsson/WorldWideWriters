@@ -504,6 +504,8 @@ Videos were converted to GIFs using [Ezgif](https://ezgif.com/video-to-gif?err=e
 
 #### Responsivness
 
+The website is responsive over all pages.
+
 - Homepage
 <img src="static/images/readme-images/responsiveness.gif">
 
