@@ -452,7 +452,7 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 #### Responsivness
 
-<img src="static/images/readme-images/responsiveness.gif">
+[<img src="static/images/readme-images/responsivness.mp4">]
 
 # Deployment
 
