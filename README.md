@@ -431,7 +431,13 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 #### Sign up/in/out
 
-<img src="static/images/readme-images/registration.gif">
+- Sign up
+
+<img src="static/images/readme-images/sign-up.gif">
+
+- Sign out/in
+
+<img src="static/images/readme-images/signin.gif">
 
 #### Post create
 
@@ -439,7 +445,7 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 #### Post edit
 
-<img src="static/images/readme-images/editpost.gif">
+<img src="static/images/readme-images/postedit.gif">
 
 #### Post delete
 
@@ -447,12 +453,20 @@ All User Stories can be found [Here](https://github.com/users/KlaraMartinsson/pr
 
 #### Save posts
 
-<img src="static/images/readme-images/saveposts.gif">
+<img src="static/images/readme-images/savedposts.gif">
 
 
 #### Responsivness
 
-[<img src="static/images/readme-images/responsivness.mp4">]
+- Homepage
+<img src="static/images/readme-images/responsiveness.gif">
+
+- Create post
+<img src="static/images/readme-images/createpost-res.gif">
+
+- Profile
+<img src="static/images/readme-images/profile-res.gif">
+
 
 # Deployment
 
