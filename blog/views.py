@@ -1,10 +1,14 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.views import generic, View
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+
 from .models import Post
+
 from .forms import PostForm
 
 
@@ -43,7 +47,7 @@ class PostDetail(View):
              "saved": saved, },
              )
 
-
+@login_required
 def user_post(request):
     """
     View to add form where user can post
@@ -69,28 +73,34 @@ def user_post(request):
         },
     )
 
-
 def post_edit(request, id):
     """
     View for users to edit their posts
     """
-    if request.method == "GET":
-        post = Post.objects.get(pk=id)
-        return render(request, "blog/post_edit.html", {"post": post})
-    elif request.method == "POST":
-        post = Post.objects.update_or_create(
-            pk=id,
-            defaults={
-                "title": request.POST["title"],
-                "content": request.POST["content"],
-                "excerpt": request.POST["excerpt"],
-                "post_image": request.FILES["post_image"],
-            },
-        )
-        messages.add_message(
-            request, messages.SUCCESS,
-            'Post edited!')
-        return redirect("user_profile")
+    post = Post.objects.get(pk=id)
+
+    if post.author == request.user:
+        if request.method == "GET":
+            return render(request, "blog/post_edit.html", {"post": post})
+        elif request.method == "POST":
+            # Update the post with the new data
+            post.title = request.POST["title"]
+            post.content = request.POST["content"]
+            post.excerpt = request.POST["excerpt"]
+            if request.FILES.get("post_image"):
+                post.post_image = request.FILES["post_image"]
+            post.save()
+
+            messages.add_message(request, messages.SUCCESS, 'Post edited!')
+            return redirect('post_list') 
+        else:
+            messages.add_message(request, messages.ERROR, 'Error editing post.')
+            return redirect("user_profile")
+    else:
+        messages.add_message(request, messages.ERROR,
+                              'You are not the author of this post,'
+                               ' therefore you cannot edit this post.')
+        return redirect('post_list')
 
 
 def post_delete(request, id):
@@ -106,7 +116,7 @@ def post_delete(request, id):
                              'Error from deleting the post.')
     return redirect("user_profile")
 
-
+@login_required
 def user_profile(request):
     """
     View to display posts in user profile
@@ -117,7 +127,6 @@ def user_profile(request):
         'mymembers': mydata,
     }
     return HttpResponse(template.render(context, request))
-
 
 class PostSaved(View):
     """
