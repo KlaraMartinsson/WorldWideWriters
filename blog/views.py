@@ -47,7 +47,6 @@ class PostDetail(View):
              "saved": saved, },
              )
 
-@login_required
 def user_post(request):
     """
     View to add form where user can post
@@ -55,7 +54,7 @@ def user_post(request):
     post_form = PostForm()
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
-        if post_form.is_valid():
+        if post_form.is_valid() and request.user.is_authenticated:
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)

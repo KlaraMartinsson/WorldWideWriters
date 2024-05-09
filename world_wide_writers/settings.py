@@ -31,13 +31,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'django.contrib.sites',
+    'cloudinary',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
-    'cloudinary',
     'blog',
 ]
 
@@ -51,6 +51,13 @@ cloudinary.config(
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+SUMMERNOTE_CONFIG = {
+    "summernote": {
+        # Change editor size
+        "width": "100%",
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,6 +136,11 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
+SUMMERNOTE_THEME = 'bs5'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = 'static/'
@@ -136,6 +148,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

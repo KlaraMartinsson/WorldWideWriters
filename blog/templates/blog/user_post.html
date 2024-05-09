@@ -2,7 +2,7 @@
 {% load static %} 
 {% load crispy_forms_tags %} 
 
-{%block content %}
+{% block content %}
 <!-- A form for registered users to make posts -->
 <section>
     <h1 class="text-center mt-5">Create a Post <i class="fa-solid fa-pen-to-square"></i></h1>
@@ -12,16 +12,26 @@
             <div class="col">
                 <p>Posting as: {{ user.username }}</p>
             </div>
-            <form class="text-white"
-            id="postForm"
-            method="post"
-            enctype="multipart/form-data"
-            style="margin-top: 1.3em"
-            >
-            {{ post_form | crispy }} {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn btn-primary">
-                Submit
-            </button>
+            <form id="postForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ post_form.title|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.post_image|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.continents|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.excerpt|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.content|as_crispy_field|safe }}
+                </div>
+                <button id="submitButton" type="submit" class="btn btn-primary">
+                    Submit
+                </button>
             </form>
             {% else %}
             <p>Log in to leave a post.</p>
