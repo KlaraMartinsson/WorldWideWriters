@@ -6,16 +6,16 @@
     <div class="container-lg card mt-5 mb-5 align-items-lg-center">
         <div class="row">
             <h2 class="m-4 text-center">Edit post</h2>
-            <form id="postForm" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-3">
                     {{ post_form.title|as_crispy_field }}
                 </div>
                 <div class="mb-3">
-                    {{ post_form.post_image|as_crispy_field }}
+                    {{ post_form.continents|as_crispy_field }}
                 </div>
                 <div class="mb-3">
-                    {{ post_form.continents|as_crispy_field }}
+                    {{ post_form.post_image }}
                 </div>
                 <div class="mb-3">
                     {{ post_form.excerpt|as_crispy_field }}

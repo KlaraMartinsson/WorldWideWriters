@@ -55,7 +55,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 SUMMERNOTE_CONFIG = {
     "summernote": {
         # Change editor size
-        "width": "100%",
+        'width': '100%',
+        'height': '480',
     },
 }
 
@@ -136,16 +137,16 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-SUMMERNOTE_THEME = 'bs5'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
+# Media settings for summernote
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+SUMMERNOTE_THEME = 'bs4'
 
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Default primary key field type
 

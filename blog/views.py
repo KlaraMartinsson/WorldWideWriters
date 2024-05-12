@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+from cloudinary.models import CloudinaryField
 
 from .models import Post
 
@@ -77,24 +78,18 @@ def post_edit(request, id):
     View for users to edit their posts
     """
     post = Post.objects.get(pk=id)
-
-    if post.author == request.user:
-        if request.method == "POST":
-            post_form = PostForm(request.POST, instance=post)
-            if post_form.is_valid() and post.author == request.user:
-                post_form.save()
-                messages.add_message(request, messages.SUCCESS, 'Post edited!')
-                return redirect("user_profile") 
-            else:
-                messages.add_message(request, messages.ERROR, 'Error editing post.')
-                return redirect("user_profile")
+    if request.method == "POST":
+        post_form = PostForm(request.POST,request.FILES, instance=post)
+        if post_form.is_valid() and post.author == request.user:
+            post_form.save()
+            messages.add_message(request, messages.SUCCESS, 'Post edited!')
+            return redirect("user_profile") 
         else:
-            post_form = PostForm(instance=post)
+            messages.add_message(request, messages.ERROR, 'Error editing post.')
+            return redirect("user_profile")
     else:
-        messages.add_message(request, messages.ERROR,
-                              'You are not the author of this post,'
-                               ' therefore you cannot edit this post.')
-    return render(request, "blog/post_edit.html", {"post_form": post_form, "post": post})
+        post_form = PostForm(instance=post)
+    return render(request, "blog/post_edit.html", {"post": post, "post_form": post_form})
 
 
 def post_delete(request, id):

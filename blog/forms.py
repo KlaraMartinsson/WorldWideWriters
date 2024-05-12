@@ -1,5 +1,5 @@
 from django import forms
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
+from django_summernote.widgets import SummernoteWidget
 
 from .models import Post
 
@@ -7,7 +7,7 @@ from .models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['post_image', 'title', 'continents', 'content', 'excerpt']
+        fields = ['title','continents', 'post_image', 'excerpt', 'content']
 
         widgets = {
             "continents": forms.Select(attrs={"class": "form-control"}),
