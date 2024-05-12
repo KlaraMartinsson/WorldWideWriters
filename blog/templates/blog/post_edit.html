@@ -1,36 +1,34 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <section>
     <div class="container-lg card mt-5 mb-5 align-items-lg-center">
         <div class="row">
             <h2 class="m-4 text-center">Edit post</h2>
-            <form action="{% url 'post_edit' post.pk %}" method="POST" enctype="multipart/form-data">
+            <form id="postForm" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="image">Image*</label>
-                <br>
-                <input type="file" id="post_image" name="post_image" class="form-control" value="{{ post.post_image }}" required>
-                <br>
-                <label for="title">Title*</label>
-                <br>
-                <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}" required>
-                <br>
-                <br>
-                <label for="content">Content*</label><br>
-                <textarea type="text" id="content" name="content" rows="20" cols="100" class="form-control" required>{{ post.content | safe }}</textarea>
-                <br>
-                <br>
-                <label for="excerpt">Excerpt*</label><br>
-                <textarea type="text" id="excerpt" name="excerpt" rows="5" cols="50" class="form-control" required>{{ post.excerpt }}</textarea>
-                <br>
-                <br>
+                <div class="mb-3">
+                    {{ post_form.title|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.post_image|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.continents|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.excerpt|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+                    {{ post_form.content|as_crispy_field|safe }}
+                </div>
                 <div class="mb-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete
                     </button>
-                    
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

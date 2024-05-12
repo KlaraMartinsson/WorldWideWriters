@@ -79,27 +79,22 @@ def post_edit(request, id):
     post = Post.objects.get(pk=id)
 
     if post.author == request.user:
-        if request.method == "GET":
-            return render(request, "blog/post_edit.html", {"post": post})
-        elif request.method == "POST":
-            # Update the post with the new data
-            post.title = request.POST["title"]
-            post.content = request.POST["content"]
-            post.excerpt = request.POST["excerpt"]
-            if request.FILES.get("post_image"):
-                post.post_image = request.FILES["post_image"]
-            post.save()
-
-            messages.add_message(request, messages.SUCCESS, 'Post edited!')
-            return redirect('post_list') 
+        if request.method == "POST":
+            post_form = PostForm(request.POST, instance=post)
+            if post_form.is_valid() and post.author == request.user:
+                post_form.save()
+                messages.add_message(request, messages.SUCCESS, 'Post edited!')
+                return redirect("user_profile") 
+            else:
+                messages.add_message(request, messages.ERROR, 'Error editing post.')
+                return redirect("user_profile")
         else:
-            messages.add_message(request, messages.ERROR, 'Error editing post.')
-            return redirect("user_profile")
+            post_form = PostForm(instance=post)
     else:
         messages.add_message(request, messages.ERROR,
                               'You are not the author of this post,'
                                ' therefore you cannot edit this post.')
-        return redirect('post_list')
+    return render(request, "blog/post_edit.html", {"post_form": post_form, "post": post})
 
 
 def post_delete(request, id):
