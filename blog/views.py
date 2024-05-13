@@ -73,22 +73,27 @@ def user_post(request):
         },
     )
 
+
 def post_edit(request, id):
     """
     View for users to edit their posts
     """
     post = Post.objects.get(pk=id)
-    if request.method == "POST":
-        post_form = PostForm(request.POST,request.FILES, instance=post)
-        if post_form.is_valid() and post.author == request.user:
-            post_form.save()
-            messages.add_message(request, messages.SUCCESS, 'Post edited!')
-            return redirect("user_profile") 
+    if post.author == request.user:
+        if request.method == "POST":
+            post_form = PostForm(request.POST,request.FILES, instance=post)
+            if post_form.is_valid():
+                post_form.save()
+                messages.add_message(request, messages.SUCCESS, 'Post edited!')
+                return redirect("user_profile") 
+            else:
+                messages.add_message(request, messages.ERROR, 'Error editing post.')
+                return redirect("user_profile")
         else:
-            messages.add_message(request, messages.ERROR, 'Error editing post.')
-            return redirect("user_profile")
-    else:
-        post_form = PostForm(instance=post)
+            post_form = PostForm(instance=post)
+    else: 
+        messages.add_message(request, messages.ERROR, 'Error, you can only edit your own posts.')
+        return redirect("user_profile")
     return render(request, "blog/post_edit.html", {"post": post, "post_form": post_form})
 
 

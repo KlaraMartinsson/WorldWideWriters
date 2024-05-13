@@ -5,6 +5,7 @@
 <section>
     <div class="container-lg card mt-5 mb-5 align-items-lg-center">
         <div class="row">
+        {% if user.is_authenticated and post.author == request.user%}
             <h2 class="m-4 text-center">Edit post</h2>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -47,6 +48,7 @@
                     </div>
                 </div>
             </form>
+        {% endif %}
         </div>
     </div>
 </section>
