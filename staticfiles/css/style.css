@@ -52,3 +52,14 @@ p {
     background: transparent;
     color: white
 }
+
+/* Button for submitting ratings */ 
+.btn-rating {
+    background-color: #433b58;
+    color: #ffffff;
+}
+
+.btn-rating:hover {
+    background-color: #332d43;
+    color: #ffffff;
+}
