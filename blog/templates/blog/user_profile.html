@@ -14,6 +14,7 @@
                             <img class="card-img-top" src="{{ mydata.post_image.url }}" alt="{{ mydata.title }}">
                         {% endif %}
                         <h2>{{mydata.title}}</h2>
+                        {% include "blog/includes/post_rating.html" %}
                         <p>{{mydata.excerpt}}</p>
                         <p>Author | {{mydata.author}}</p>
                         {% if mydata.status == 0 %}
@@ -60,6 +61,7 @@
                         <img class="card-img-top" src="{{ mydata.post_image.url }}" alt="{{ mydata.title }}">
                         {% endif %}
                         <h2>{{mydata.title}}</h2>
+                        {% include "blog/includes/post_rating.html" %}
                         <p>{{mydata.excerpt}}</p>
                         <p>Author | {{mydata.author}}</p>
                         <a href="{% url 'post_detail' mydata.slug %}" class="btn btn-sm btn-primary">Read More</a>
