@@ -3,62 +3,77 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <!-- Displaying full post -->
-<div class="container-lg mt-5 mb-5">
+<div class="container-lg mt-5 mb-3">
     <div class="row card p-4">
         {% if "placeholder" in post.post_image.url %}
         <img src="{% static 'images/default.jpg' %}" alt="placeholder image">
         {% else %}
         <img src=" {{ post.post_image.url }}" alt="{{ post.title }} image">
         {% endif %}
-        <article>
-            <h1 class="mt-4">{{ post.title }}</h1>
-            <hr>
-            {{ post.content | safe }}
-            <hr>
-            <p class="text-small mt-4">{{ post.author }} | {{ post.created_on }}</p>
+        <h1 class="mt-4">{{ post.title }}</h1>
+            {% include "blog/includes/post_rating.html" %}
+            <form action="{% url 'post_detail' post.slug %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="rating_form" value="rating_form">
+                <p class="mb-0 mt-2">Rate Post</p>
+                <div class="d-flex align-items-center">
+                    <select name="rating" class="form-control me-2 w-25">
+                        <option value="1">1 star</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5">5 stars</option>
+                    </select>
+                    <button type="submit" class="btn btn-rating" aria-label="Submit">Submit Rating <i class="fa-solid fa-star" style="color: #FFD43B;"></i></button>
+                </div>
+            </form>
+        <hr class="mt-3">
+        {{ post.content | safe }}
+        <hr>
+        <p class="text-small mt-4">{{ post.author }} | {{ post.created_on }}</p>
         </article>
-    <div class="row">
-        <div class="col-6">
-        <a href="{% url 'post_list' %}" class="btn btn-primary mb-2">Go back to posts</a>
-            {% if user.is_authenticated and post.author == request.user%}
-            <a href="{% url 'post_edit' post.pk %}" class="btn btn-secondary mb-2">Edit</a>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Delete
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-dark" id="exampleModalLabel">Are you sure you want to delete post "{{post.title}}"?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                            <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Yes</a>
+        <div class="row">
+            <div class="col-6">
+                <a href="{% url 'post_list' %}" class="btn btn-primary mb-2">Go back to posts</a>
+                {% if user.is_authenticated and post.author == request.user%}
+                <a href="{% url 'post_edit' post.pk %}" class="btn btn-secondary mb-2">Edit</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark" id="exampleModalLabel">Are you sure you want to delete post "{{post.title}}"?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Yes</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endif %}
+            </div>
+            {% if user.is_authenticated %}
+            <div class="col-6">
+                <form action="{% url 'post_saved' post.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% if not saved %}
+                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i
+                            class="fa-regular fa-bookmark fa-2xl"></i></button>
+                    {% else %}
+                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i
+                            class="fa-solid fa-bookmark fa-2xl"></i></button>
+                    {% endif %}
+                </form>
             </div>
             {% endif %}
         </div>
-        <div class="col-6">
-            {% if user.is_authenticated %}
-            <form action="{% url 'post_saved' post.slug %}" method="POST">
-                {% csrf_token %}
-                {% if not saved %}
-                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i
-                        class="fa-regular fa-bookmark fa-2xl"></i></button>
-                {% else %}
-                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-saved"><i
-                        class="fa-solid fa-bookmark fa-2xl"></i></button>
-                {% endif %}
-            </form>
-            {% endif %}
-        </div>
-    </div>
     </div>
 </div>
 {% endblock %}
