@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models import Avg, Count
 
 STATUS = ((0, "Draft"), (1, "Published"))
 CONTINENT = (
@@ -40,3 +42,38 @@ class Post(models.Model):
         name of author
         """
         return f"{self.title} | Written by {self.author}"
+    
+    def average_rating(self):
+        """
+        Calculates the avg rating for a post
+        """
+        reviews = Rating.objects.filter(
+            post=self).aggregate(average=Avg('rating'))
+        avg = 0
+        if reviews['average'] is not None:
+            avg = float(reviews['average'])
+        return avg
+
+    def count_rating(self):
+        """
+        Counts the amount of ratings for a post
+        """
+        reviews = Rating.objects.filter(
+            post=self).aggregate(count=Count('id'))
+        count = 0
+        if reviews['count'] is not None:
+            count = int(reviews['count'])
+        return count
+    
+class Rating(models.Model):
+    """ 
+    Model for posts ratings by users 
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    rating = models.FloatField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+    def __str__(self):
+        return f"{self.user} gave {self.post} a {self.rating} star rating"
+

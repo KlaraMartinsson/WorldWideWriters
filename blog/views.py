@@ -8,9 +8,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from cloudinary.models import CloudinaryField
 
-from .models import Post
+from .models import Post, Rating
 
-from .forms import PostForm
+from .forms import PostForm, RatingForm
 
 
 class HomePage(generic.ListView):
@@ -30,23 +30,47 @@ class PostList(generic.ListView):
     template_name = "blog/post_list.html"
 
 
-class PostDetail(View):
+def post_detail(request, slug):
     """
     Request the data for a single blog post
     """
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.all()
-        post = get_object_or_404(queryset, slug=slug)
-        saved = False
-        if post.saved_post.filter(id=self.request.user.id).exists():
-            saved = True
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, slug=slug)
+    saved = False
 
-        return render(
-            request,
-            "blog/post_detail.html",
-            {"post": post,
-             "saved": saved, },
-             )
+    if post.saved_post.filter(id=request.user.id).exists():
+        saved = True
+
+    if request.user.is_authenticated:
+        user_rating = Rating.objects.filter(
+            user=request.user, post=post).exists()
+    else:
+        user_rating = False
+
+    if request.method == "POST":
+        if 'rating_form' in request.POST:
+            rating_form = RatingForm(data=request.POST)
+            if rating_form.is_valid() and request.user.is_authenticated:
+                rating = rating_form.save(commit=False)
+                rating.user = request.user
+                rating.post = post
+                rating.save()
+                messages.success(request, "Post rating submitted.")
+                return HttpResponseRedirect(
+                    reverse('post_detail', args=[slug]))
+            else:
+                messages.error(
+                    request, "Error rating post. Please try again.")
+                
+    rating_form = RatingForm()
+
+    context = { 
+        "post": post,
+        "saved": saved,
+        "user_rating": user_rating,
+        "rating_form": rating_form,
+    }
+    return render(request, "blog/post_detail.html", context)
 
 def user_post(request):
     """
@@ -110,6 +134,7 @@ def post_delete(request, id):
                              'Error from deleting the post.')
     return redirect("user_profile")
 
+
 @login_required
 def user_profile(request):
     """
@@ -121,6 +146,7 @@ def user_profile(request):
         'mymembers': mydata,
     }
     return HttpResponse(template.render(context, request))
+
 
 class PostSaved(View):
     """
