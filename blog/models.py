@@ -42,7 +42,7 @@ class Post(models.Model):
         name of author
         """
         return f"{self.title} | Written by {self.author}"
-    
+
     def average_rating(self):
         """
         Calculates the avg rating for a post
@@ -64,10 +64,11 @@ class Post(models.Model):
         if reviews['count'] is not None:
             count = int(reviews['count'])
         return count
-    
+
+
 class Rating(models.Model):
-    """ 
-    Model for posts ratings by users 
+    """
+    Model for posts ratings by users
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -76,4 +77,3 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"{self.user} gave {self.post} a {self.rating} star rating"
-

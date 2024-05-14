@@ -7,7 +7,7 @@ from .models import Post, Rating
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title','continents', 'post_image', 'excerpt', 'content']
+        fields = ['title', 'continents', 'post_image', 'excerpt', 'content']
 
         widgets = {
             "continents": forms.Select(attrs={"class": "form-control"}),

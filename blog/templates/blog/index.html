@@ -7,11 +7,10 @@
     <div>
         <img src="{% static 'images/hero-image.png' %}" class="img-fluid" id="hero-image" alt="image">
     </div>
-
     <section>
         <div class="container card mt-2 mb-5">
             <div class="row justify-content-center">
-            {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                 <h1 class="text-center mt-5">Welcome back to WorldWideWriters!</h1>
                 <p class="text-center mt-4"> Here you can share your adventures and
                 inspire others to explore the world. You can create posts and save your favorite travel posts from fellow
@@ -22,7 +21,7 @@
                     <a class="btn btn-lg btn-primary mb-3 {% if request.path == user_post_url %}active{% endif %}" aria-current="page"
                         href="{% url 'user_post' %}">Create a post</a>
                 </div>
-            {% else %}
+                {% else %}
                 <h1 class="text-center mt-5">Welcome to WorldWideWriters!</h1>
                 <p class="text-center mt-4">Embrace your wanderlust and join World Wide Writers, a website where travel enthusiasts share
                     their adventures and

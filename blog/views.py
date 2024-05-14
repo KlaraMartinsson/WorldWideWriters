@@ -61,16 +61,17 @@ def post_detail(request, slug):
             else:
                 messages.error(
                     request, "Error rating post. Please try again.")
-                
+
     rating_form = RatingForm()
 
-    context = { 
+    context = {
         "post": post,
         "saved": saved,
         "user_rating": user_rating,
         "rating_form": rating_form,
     }
     return render(request, "blog/post_detail.html", context)
+
 
 def user_post(request):
     """
@@ -105,20 +106,23 @@ def post_edit(request, id):
     post = Post.objects.get(pk=id)
     if post.author == request.user:
         if request.method == "POST":
-            post_form = PostForm(request.POST,request.FILES, instance=post)
+            post_form = PostForm(request.POST, request.FILES, instance=post)
             if post_form.is_valid():
                 post_form.save()
                 messages.add_message(request, messages.SUCCESS, 'Post edited!')
-                return redirect("user_profile") 
+                return redirect("user_profile")
             else:
-                messages.add_message(request, messages.ERROR, 'Error editing post.')
+                messages.add_message(request, messages.ERROR,
+                                     'Error editing post.')
                 return redirect("user_profile")
         else:
             post_form = PostForm(instance=post)
-    else: 
-        messages.add_message(request, messages.ERROR, 'Error, you can only edit your own posts.')
+    else:
+        messages.add_message(request, messages.ERROR,
+                             'Error, you can only edit your own posts.')
         return redirect("user_profile")
-    return render(request, "blog/post_edit.html", {"post": post, "post_form": post_form})
+    return render(request, "blog/post_edit.html",
+                  {"post": post, "post_form": post_form})
 
 
 def post_delete(request, id):
